@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Button } from '@material-tailwind/react'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -9,6 +10,9 @@ function App() {
   return (
     <>
       <div>
+        <h1 className='text-5xl text-pink-600 font-signika'>Hello </h1>
+        <h1 className='font-marmelad text-6xl text-red-400'>Serene</h1>
+        <Button>Click me</Button>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
