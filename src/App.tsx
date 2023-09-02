@@ -3,6 +3,7 @@ import { Button, Typography } from "@material-tailwind/react";
 import RightIcon from "./assets/right.svg";
 import LeftIcon from "./assets/left.svg";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function App() {
     // const navigate = useNavigate();
@@ -15,6 +16,7 @@ function App() {
     const [flyIn3, setFlyIn3] = useState(false);
     const [flyIn4, setFlyIn4] = useState(false);
     const [flyIn5, setFlyIn5] = useState(false);
+    const navigate = useNavigate();
 
     const handleNextClick = () => {
         if (!flyIn1) {
@@ -37,6 +39,7 @@ function App() {
             setFlyIn5(!flyIn5);
             return;
         }
+        navigate("/for-serene-impl/2");
     };
 
     const genThanks = (msg: string) => {
@@ -78,7 +81,7 @@ function App() {
                 <>
                     <Typography
                         variant="h2"
-                        className="font-signika text-pink-300 bg-pink-50 text-6xl px-3 box-content uppercase opacity-0"
+                        className={`font-marmelad text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase opacity-0`}
                     >
                         {msg}
                     </Typography>
@@ -103,7 +106,7 @@ function App() {
                 <>
                     <Typography
                         variant="h2"
-                        className="font-signika text-6xl px-3 box-content uppercase opacity-0"
+                        className={`font-marmelad text-pink-50 bg-pink-300 text-6xl px-3 py-1 box-content rounded-md uppercase opacity-0`}
                     >
                         {msg}
                     </Typography>
@@ -166,7 +169,7 @@ function App() {
                 <div className="container flex items-center justify-center bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
                     <div className="flex flex-col items-center">
                         <div className="header flex justify-center mt-10 place-items-baseline">
-                            {genThanks("Cảm ơn em")}
+                            {genThanks("Cảm ơn em,")}
                             <div className="sub-header flex flex-col items-start">
                                 <div className="flex">
                                     {genHeader("Công chúa")}
@@ -174,7 +177,7 @@ function App() {
                                 {genMine("của anh")}
                                 <div className="flex justify-between w-full">
                                     <div className="text-center">{genBecause("vì em còn ")}</div>
-                                    <div className="w-full text-center">{genHead("Ở đây")}</div>
+                                    <div className="w-full text-center">{genHead("Ở đây ❤️")}</div>
                                 </div>
                             </div>
                         </div>
