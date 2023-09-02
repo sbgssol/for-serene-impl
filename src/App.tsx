@@ -1,11 +1,11 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "@material-tailwind/react";
 import RightIcon from "./assets/right.svg";
 import LeftIcon from "./assets/left.svg";
 import { useState } from "react";
 
 function App() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const handlePrevClick = () => {
         alert("Prev clicked!");
     };
