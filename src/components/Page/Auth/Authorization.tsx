@@ -1,32 +1,33 @@
 import { Button, Input, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+interface AuthorizationProps {
+    setValidForRouter: (valid: boolean) => void; // Define a prop to set the valid state in MyRouter
+}
 
-export default function Authorization() {
+export default function Authorization({ setValidForRouter }: AuthorizationProps) {
     const [input, setInput] = useState<string>("");
-    const [valid, setValid] = useState<boolean>(false);
+    const [valid, setValid] = useState(false);
     const navigate = useNavigate();
 
     const handleChanged = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInput(event.target.value);
-        checkValid();
     };
 
     const checkValid = () => {
-        setValid(
-            input.toLowerCase() == "cck" || input.toLowerCase() == "circle k"
-        );
+        setValid(input.toLowerCase() === "cck" || input.toLowerCase() === "circle k"); // Update the valid state in MyRouter
+        setValidForRouter(valid);
         return valid;
     };
 
     const handleContinueClicked = () => {
-        if (!valid) return;
+        if (!checkValid()) return;
         navigate("/for-serene-impl/1");
     };
 
     useEffect(() => {
         checkValid();
-        console.log("input: " + input);
+        // console.log("input: " + input);
     }, [input]);
 
     return (

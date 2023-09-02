@@ -3,15 +3,18 @@ import App from "../../App";
 import Normal from "../Page/Normal/NormalPage";
 import NotFound from "../Page/Error/NotFound";
 import Authorization from "../Page/Auth/Authorization";
+import { useState } from "react";
 
 export default function MyRouter() {
-    return (
-        <Routes>
-            <Route path="/for-serene-impl" element={<Authorization />} />
-            <Route path="/for-serene-impl/1" element={<App />} />
-            <Route path="/for-serene-impl/2" element={<Normal />} />
+    const [valid, setValid] = useState<boolean>(false); // Create valid state in MyRouter
 
-            <Route path="/for-serene-impl/*" element={<NotFound />} />
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path="/for-serene-impl" element={<Authorization setValidForRouter={setValid} />} />
+      <Route path="/for-serene-impl/1" element={ valid ? <App /> : <NotFound />} />
+      <Route path="/for-serene-impl/2" element={ valid ? <Normal />: <NotFound/>} />
+      
+      <Route path="/for-serene-impl/*" element={<NotFound />} />
+    </Routes>
+  );
 }
