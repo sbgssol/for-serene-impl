@@ -14,6 +14,7 @@ function App() {
     const [flyIn2, setFlyIn2] = useState(false);
     const [flyIn3, setFlyIn3] = useState(false);
     const [flyIn4, setFlyIn4] = useState(false);
+    const [flyIn5, setFlyIn5] = useState(false);
 
     const handleNextClick = () => {
         if (!flyIn1) {
@@ -30,6 +31,10 @@ function App() {
         }
         if (!flyIn4) {
             setFlyIn4(!flyIn4);
+            return;
+        }
+        if (!flyIn5) {
+            setFlyIn5(!flyIn5);
             return;
         }
     };
@@ -62,7 +67,7 @@ function App() {
                 <>
                     <Typography
                         variant="h2"
-                        className={`font-signika text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase animate-flyRight`}
+                        className={`font-marmelad text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase animate-flyRight`}
                     >
                         {msg}
                     </Typography>
@@ -74,6 +79,31 @@ function App() {
                     <Typography
                         variant="h2"
                         className="font-signika text-pink-300 bg-pink-50 text-6xl px-3 box-content uppercase opacity-0"
+                    >
+                        {msg}
+                    </Typography>
+                </>
+            );
+        }
+    };
+    const genHead = (msg: string) => {
+        if (flyIn5) {
+            return (
+                <>
+                    <Typography
+                        variant="h2"
+                        className={`font-marmelad text-pink-50 bg-pink-300 text-6xl px-3 py-1 box-content rounded-md uppercase animate-flyUp`}
+                    >
+                        {msg}
+                    </Typography>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <Typography
+                        variant="h2"
+                        className="font-signika text-6xl px-3 box-content uppercase opacity-0"
                     >
                         {msg}
                     </Typography>
@@ -96,7 +126,7 @@ function App() {
             return (
                 <Typography
                     variant="h2"
-                    className="font-signika text-pink-300 animate-flyUp"
+                    className="font-signika text-pink-300 animate-flyRight"
                 >
                     {msg}
                 </Typography>
@@ -118,7 +148,7 @@ function App() {
             return (
                 <Typography
                     variant="h3"
-                    className="font-signika text-pink-100 animate-flyDown "
+                    className="font-signika text-pink-100 animate-flyRight "
                 >
                     {msg}
                 </Typography>
@@ -126,21 +156,26 @@ function App() {
         }
     };
 
-    // const genHere = (msg: string) => { 
+    // const genHere = (msg: string) => {
 
     // };
 
     return (
         <>
             <div className="flex flex-col items-center">
-                <div className="container flex items-center justify-center mx-auto bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
-                    <div className="header flex justify-center mt-10 place-items-baseline">
-                        {genThanks("Tud ak wm")}
-                        <div className="sub-header flex flex-col items-start">
-                            <div className="flex">{genHeader("Ysdc lter")}</div>
-                            {genMine("Prv Kvf")}
-                            <div className="md:w-[330px] flex flex-col">
-                              {genBecause("Kt Nv Wz")}
+                <div className="container flex items-center justify-center bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
+                    <div className="flex flex-col items-center">
+                        <div className="header flex justify-center mt-10 place-items-baseline">
+                            {genThanks("Cảm ơn em")}
+                            <div className="sub-header flex flex-col items-start">
+                                <div className="flex">
+                                    {genHeader("Công chúa")}
+                                </div>
+                                {genMine("của anh")}
+                                <div className="flex justify-between w-full">
+                                    <div className="text-center">{genBecause("vì em còn ")}</div>
+                                    <div className="w-full text-center">{genHead("Ở đây")}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
