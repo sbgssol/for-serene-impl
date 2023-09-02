@@ -13,6 +13,7 @@ function App() {
     const [flyIn1, setFlyIn1] = useState(false);
     const [flyIn2, setFlyIn2] = useState(false);
     const [flyIn3, setFlyIn3] = useState(false);
+    const [flyIn4, setFlyIn4] = useState(false);
 
     const handleNextClick = () => {
         if (!flyIn1) {
@@ -27,16 +28,20 @@ function App() {
             setFlyIn3(!flyIn3);
             return;
         }
+        if (!flyIn4) {
+            setFlyIn4(!flyIn4);
+            return;
+        }
     };
 
-    const genThanks = () => {
+    const genThanks = (msg: string) => {
         if (!flyIn1) {
             return (
                 <Typography
                     variant="h2"
                     className="font-signika text-pink-100 pr-3 opacity-0"
                 >
-                    Cảm ơn em
+                    {msg}
                 </Typography>
             );
         } else {
@@ -45,13 +50,13 @@ function App() {
                     variant="h2"
                     className="font-signika text-pink-100 pr-3 animate-flyLeft"
                 >
-                    Cảm ơn em
+                    {msg}
                 </Typography>
             );
         }
     };
 
-    const genHeader = () => {
+    const genHeader = (msg: string) => {
         if (flyIn2) {
             return (
                 <>
@@ -59,7 +64,7 @@ function App() {
                         variant="h2"
                         className={`font-signika text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase animate-flyRight`}
                     >
-                        Công chúa
+                        {msg}
                     </Typography>
                 </>
             );
@@ -70,38 +75,73 @@ function App() {
                         variant="h2"
                         className="font-signika text-pink-300 bg-pink-50 text-6xl px-3 box-content uppercase opacity-0"
                     >
-                        Công chúa
+                        {msg}
                     </Typography>
                 </>
             );
         }
     };
 
-    const genMine = () => {
+    const genMine = (msg: string) => {
         if (!flyIn3) {
             return (
-                <Typography variant="h2" className="font-signika text-pink-300 opacity-0">
-                    của anh
+                <Typography
+                    variant="h2"
+                    className="font-signika text-pink-300 opacity-0"
+                >
+                    {msg}
                 </Typography>
             );
         } else {
             return (
-                <Typography variant="h2" className="font-signika text-pink-300 animate-flyTop">
-                    của anh
+                <Typography
+                    variant="h2"
+                    className="font-signika text-pink-300 animate-flyUp"
+                >
+                    {msg}
                 </Typography>
             );
         }
     };
+
+    const genBecause = (msg: string) => {
+        if (!flyIn4) {
+            return (
+                <Typography
+                    variant="h3"
+                    className="font-signika text-pink-100 opacity-0"
+                >
+                    {msg}
+                </Typography>
+            );
+        } else {
+            return (
+                <Typography
+                    variant="h3"
+                    className="font-signika text-pink-100 animate-flyDown "
+                >
+                    {msg}
+                </Typography>
+            );
+        }
+    };
+
+    // const genHere = (msg: string) => { 
+
+    // };
 
     return (
         <>
             <div className="flex flex-col items-center">
                 <div className="container flex items-center justify-center mx-auto bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
                     <div className="header flex justify-center mt-10 place-items-baseline">
-                        {genThanks()}
+                        {genThanks("Tud ak wm")}
                         <div className="sub-header flex flex-col items-start">
-                            <div className="flex">{genHeader()}</div>
-                            {genMine()}
+                            <div className="flex">{genHeader("Ysdc lter")}</div>
+                            {genMine("Prv Kvf")}
+                            <div className="md:w-[330px] flex flex-col">
+                              {genBecause("Kt Nv Wz")}
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -16,15 +16,20 @@ module.exports = withMT({
           '0%': { transform: 'translateX(150px)', opacity: '0' },
           '100%': { opacity: '1' },
         },
-        flyTop: {
+        flyUp: {
           '0%': { transform: 'translateY(150px)', opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        flyDown: {
+          '0%': { transform: 'translateY(-150px)', opacity: '0' },
           '100%': { opacity: '1' },
         },
       },
       animation: {
         flyLeft: 'flyLeft 500ms ease-out',
         flyRight: 'flyRight 500ms ease-out',
-        flyTop: 'flyTop 500ms ease-out',
+        flyUp: 'flyUp 500ms ease-out',
+        flyDown: 'flyDown 500ms ease-out',
       },
 
       fontFamily: {

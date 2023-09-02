@@ -11,7 +11,7 @@ export default function MyRouter() {
   return (
     <Routes>
       <Route path="/for-serene-impl" element={<Authorization setValidForRouter={setValid} />} />
-      <Route path="/for-serene-impl/1" element={ true ? <App /> : <NotFound />} />
+      <Route path="/for-serene-impl/1" element={ valid ? <App /> : <NotFound />} />
       <Route path="/for-serene-impl/2" element={ valid ? <Normal />: <NotFound/>} />
       
       <Route path="/for-serene-impl/*" element={<NotFound />} />
