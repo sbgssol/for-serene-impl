@@ -9,18 +9,22 @@ module.exports = withMT({
     extend: {
       keyframes: {
         flyLeft: {
-          '0%': { transform: 'translateX(-400px)', opacity: '0' },
+          '0%': { transform: 'translateX(-150px)', opacity: '0' },
           '100%': { opacity: '1' },
         },
         flyRight: {
-          '0%': { transform: 'translateX(400px)', opacity: '0' },
+          '0%': { transform: 'translateX(150px)', opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        flyTop: {
+          '0%': { transform: 'translateY(150px)', opacity: '0' },
           '100%': { opacity: '1' },
         },
       },
       animation: {
         flyLeft: 'flyLeft 500ms ease-out',
         flyRight: 'flyRight 500ms ease-out',
-        flyRightDelay1s: 'flyRight 500ms ease-out 1 1s',
+        flyTop: 'flyTop 500ms ease-out',
       },
 
       fontFamily: {
