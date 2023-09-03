@@ -2,28 +2,130 @@ import { Button, Typography } from "@material-tailwind/react";
 import RightIcon from "../../../assets/right.svg";
 import LeftIcon from "../../../assets/left.svg";
 import { useNavigate } from "react-router-dom";
-
-const genLeft = (msg: string) => {
-    return (
-        <Typography textGradient color="pink" className="text-6xl font-marmelad">
-            {msg}
-        </Typography>
-    );
-};
-
-const genRightTop = (msg: string) => {
-    return <Typography className="text-5xl font-signika font-medium">{msg}</Typography>;
-};
-
-const genRightCenter = (msg: string) => {
-    return <Typography className="text-6xl font-signika font-semibold">{msg}</Typography>;
-};
-
-const genRightBottom = (msg: string) => {
-    return <Typography className="text-7xl font-signika font-bold">{msg}</Typography>;
-};
+import { useState } from "react";
 
 export default function Normal() {
+    const [animation1, setAnimation1] = useState(false);
+    const [animation2, setAnimation2] = useState(false);
+    const [animation3, setAnimation3] = useState(false);
+    const [animation4, setAnimation4] = useState(false);
+    const [animation5, setAnimation5] = useState(false);
+
+    const genLeft = (msg: string) => {
+        if (animation1) {
+            return (
+                <Typography
+                    textGradient
+                    color="pink"
+                    className="text-6xl font-signika animate-zoomOut"
+                >
+                    {msg}
+                </Typography>
+            );
+        } else {
+            return (
+                <Typography
+                    textGradient
+                    color="pink"
+                    className="text-6xl font-signika opacity-0"
+                >
+                    {msg}
+                </Typography>
+            );
+        }
+    };
+
+    const genRightTop = (msg: string) => {
+        if (animation3) {
+            return (
+                <Typography className="text-6xl font-marmelad font-medium">
+                    {msg}
+                </Typography>
+            );
+        } else {
+            return (
+                <Typography className="text-6xl font-marmelad font-medium opacity-0">
+                    {msg}
+                </Typography>
+            );
+        }
+    };
+
+    const genRightCenter = (msg: string) => {
+        if (animation4) {
+            return (
+                <Typography className="text-6xl font-marmelad font-semibold">
+                    {msg}
+                </Typography>
+            );
+        } else {
+            return (
+                <Typography className="text-6xl font-marmelad font-semibold opacity-0">
+                    {msg}
+                </Typography>
+            );
+        }
+    };
+
+    const genRightBottom = (msg: string) => {
+        if (animation5) {
+            return (
+                <Typography className="text-7xl font-marmelad font-bold">
+                    {msg}
+                </Typography>
+            );
+        } else {
+            return (
+                <Typography className="text-7xl font-marmelad font-bold opacity-0">
+                    {msg}
+                </Typography>
+            );
+        }
+    };
+
+    const genAllRight = () => {
+        if (animation2) {
+            return (
+                <div className="space-y-5 border-l-8 border-pink-300 bg-pink-100 px-2 py-4 mx-2 animate-flyRight">
+                    {genRightTop("Uja ok")}
+                    {genRightCenter("Qed xm")}
+                    {genRightBottom("Bgqynx rr")}
+                </div>
+            );
+        } else {
+            return (
+                <div className="space-y-5 border-l-8 border-pink-300 bg-pink-100 px-2 py-4 mx-2 opacity-0">
+                    {genRightTop("Uja ok")}
+                    {genRightCenter("Qed xm")}
+                    {genRightBottom("Bgqynx rr")}
+                </div>
+            );
+        }
+    };
+
+    const handleNextClick = () => {
+        if (!animation1) {
+            setAnimation1(!animation1);
+            return;
+        }
+        if (!animation2) {
+            setAnimation2(!animation2);
+            return;
+        }
+        if (!animation3) {
+            setAnimation3(!animation3);
+            return;
+        }
+        if (!animation4) {
+            setAnimation4(!animation4);
+            return;
+        }
+        if (!animation5) {
+            setAnimation5(!animation5);
+            return;
+        }
+    };
+
     const navigate = useNavigate();
     return (
         <>
@@ -32,11 +134,7 @@ export default function Normal() {
                     <div className="top-[50%] relative box-content -translate-y-[50%]">
                         <div className="flex items-center justify-center">
                             {genLeft("Hce")}
-                            <div className="border-l-4 border-pink-300 bg-pink-100 px-2 py-2 mx-2 rounded">
-                                {genRightTop("Uja ok")}
-                                {genRightCenter("Qed xm")}
-                                {genRightBottom("Bgqynx rr")}
-                            </div>
+                            {genAllRight()}
                         </div>
                     </div>
                 </div>
@@ -52,7 +150,7 @@ export default function Normal() {
                     </Button>
                     <Button
                         className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
-                        onClick={() => {}}
+                        onClick={handleNextClick}
                     >
                         <img src={RightIcon} alt="" />
                     </Button>
