@@ -3,9 +3,10 @@ import RightIcon from "../../../assets/right.svg";
 import LeftIcon from "../../../assets/left.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import TypingText from "../../Texts/Typing";
 
 export default function Normal() {
-    const [animation1, setAnimation1] = useState(false);
+    const [animation1, setAnimation1] = useState(true);
     const [animation2, setAnimation2] = useState(false);
     const [animation3, setAnimation3] = useState(false);
     const [animation4, setAnimation4] = useState(false);
@@ -38,9 +39,13 @@ export default function Normal() {
     const genRightTop = (msg: string) => {
         if (animation3) {
             return (
-                <Typography className="text-6xl font-marmelad font-medium">
-                    {msg}
-                </Typography>
+                // <Typography className="text-6xl font-marmelad font-medium">
+                //     {msg}
+                // </Typography>
+                <TypingText
+                    msg={msg}
+                    style="text-6xl font-marmelad font-medium text-pink-400"
+                ></TypingText>
             );
         } else {
             return (
