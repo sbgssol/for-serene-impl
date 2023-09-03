@@ -1,121 +1,62 @@
-import {
-    Button,
-    Card,
-    CardBody,
-    CardFooter,
-    CardHeader,
-    Typography,
-} from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
+import RightIcon from "../../../assets/right.svg";
+import LeftIcon from "../../../assets/left.svg";
 import { useNavigate } from "react-router-dom";
 
-function CheckIcon() {
+const genLeft = (msg: string) => {
     return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
-            className="h-3 w-3"
-        >
-            <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4.5 12.75l6 6 9-13.5"
-            />
-        </svg>
+        <Typography textGradient color="pink" className="text-6xl font-marmelad">
+            {msg}
+        </Typography>
     );
-}
+};
+
+const genRightTop = (msg: string) => {
+    return <Typography className="text-5xl font-signika font-medium">{msg}</Typography>;
+};
+
+const genRightCenter = (msg: string) => {
+    return <Typography className="text-6xl font-signika font-semibold">{msg}</Typography>;
+};
+
+const genRightBottom = (msg: string) => {
+    return <Typography className="text-7xl font-signika font-bold">{msg}</Typography>;
+};
 
 export default function Normal() {
     const navigate = useNavigate();
     return (
         <>
-            <div className="flex justify-center bg-gray-500 h-screen">
-                <Card
-                    color="gray"
-                    variant="gradient"
-                    className="w-1/2 h-1/2 p-8 mt-3"
-                >
-                    <CardHeader
-                        floated={false}
-                        shadow={false}
-                        color="transparent"
-                        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+            <div className="flex flex-col items-center">
+                <div className="container bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
+                    <div className="top-[50%] relative box-content -translate-y-[50%]">
+                        <div className="flex items-center justify-center">
+                            {genLeft("Hce")}
+                            <div className="border-l-4 border-pink-300 bg-pink-100 px-2 py-2 mx-2 rounded">
+                                {genRightTop("Uja ok")}
+                                {genRightCenter("Qed xm")}
+                                {genRightBottom("Bgqynx rr")}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex place-content-between w-80 md:w-[720px] lg:w-[800px] mt-5">
+                    <Button
+                        className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
+                        onClick={() => {
+                            navigate(-1);
+                        }}
                     >
-                        <Typography
-                            variant="small"
-                            color="white"
-                            className="font-marmelad uppercase"
-                        >
-                            standard
-                        </Typography>
-                        <Typography
-                            variant="h1"
-                            color="white"
-                            className="mt-6 flex justify-center gap-1 text-7xl font-normal"
-                        >
-                            <span className="mt-2 text-4xl">$</span>29{" "}
-                            <span className="self-end text-4xl">/mo</span>
-                        </Typography>
-                    </CardHeader>
-                    <CardBody className="p-0">
-                        <ul className="flex flex-col gap-4">
-                            <li className="flex items-center gap-4">
-                                <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                                    <CheckIcon />
-                                </span>
-                                <Typography className="font-marmelad">
-                                    5 team members
-                                </Typography>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                                    <CheckIcon />
-                                </span>
-                                <Typography className="font-marmelad">
-                                    200+ components
-                                </Typography>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                                    <CheckIcon />
-                                </span>
-                                <Typography className="font-marmelad">
-                                    40+ built-in pages
-                                </Typography>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                                    <CheckIcon />
-                                </span>
-                                <Typography className="font-marmelad">
-                                    1 year free updates
-                                </Typography>
-                            </li>
-                            <li className="flex items-center gap-4">
-                                <span className="rounded-full border border-white/20 bg-white/20 p-1">
-                                    <CheckIcon />
-                                </span>
-                                <Typography className="font-marmelad">
-                                    Life time technical support
-                                </Typography>
-                            </li>
-                        </ul>
-                    </CardBody>
-                    <CardFooter className="mt-12 p-0">
-                        <Button
-                            size="lg"
-                            color="white"
-                            className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100 active:bg-pink-100"
-                            fullWidth={true}
-                            ripple={false}
-                            onClick={() => {navigate(-1)}}
-                        >
-                            Buy Now
-                        </Button>
-                    </CardFooter>
-                </Card>
+                        <img src={LeftIcon} alt="" />
+                    </Button>
+                    <Button
+                        className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
+                        onClick={() => {}}
+                    >
+                        <img src={RightIcon} alt="" />
+                    </Button>
+                </div>
             </div>
         </>
     );
