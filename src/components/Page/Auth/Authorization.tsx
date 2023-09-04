@@ -50,12 +50,14 @@ export default function Authorization({
           color="pink"
           value={input}
           onChange={handleChanged}
-          label={valid ? "Oh Yeah ❤️" : "Do you remember?"}
+          label={valid ? "That's sweet, my darling ❤️" : "Do you remember?"}
         />
         <Button
           ripple={valid ? true : false}
           color={valid ? "pink" : "gray"}
-          className={`mt-2 w-full ${valid ? "" : "hover:cursor-not-allowed"}`}
+          className={`mt-2 w-full ${
+            valid ? "animate-Pulse" : "hover:cursor-not-allowed"
+          }`}
           onClick={handleContinueClicked}
         >
           Continue →

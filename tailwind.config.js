@@ -113,6 +113,12 @@ module.exports = withMT({
             opacity: "1",
           },
         },
+
+        Pulse: {
+          "0%": {},
+          "50%": { transform: "scale(1.1)" },
+          "100%": {},
+        },
       },
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
@@ -129,6 +135,7 @@ module.exports = withMT({
           "TrackingInExpand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
         TrackingInContract:
           "TrackingInContract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
+        Pulse: "Pulse 1000ms ease-out infinite",
       },
 
       fontFamily: {

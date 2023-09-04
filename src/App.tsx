@@ -114,6 +114,16 @@ function App() {
       );
     }
   };
+  const genHeart = (msg: string) => {
+    let classes = flyIn5 ? "animate-Pulse" : "opacity-0";
+    return (
+      <>
+        <Typography variant="h2" className={`text-6xl py-1  ${classes}`}>
+          {msg}
+        </Typography>
+      </>
+    );
+  };
 
   const genMine = (msg: string) => {
     if (!flyIn3) {
@@ -165,7 +175,7 @@ function App() {
 
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center select-none">
         <div className="container flex items-center justify-center bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
           <div className="flex flex-col items-center">
             <div className="header flex justify-center mt-10 place-items-baseline">
@@ -175,8 +185,9 @@ function App() {
                 {genMine("của anh")}
                 <div className="flex justify-between w-full">
                   <div className="text-center">{genBecause("vì em còn ")}</div>
-                  <div className="w-full text-center">
-                    {genHead("Ở đây ❤️")}
+                  <div className="w-full text-center flex ">
+                    {genHead("Ở đây")}
+                    {genHeart("❤️")}
                   </div>
                 </div>
               </div>
