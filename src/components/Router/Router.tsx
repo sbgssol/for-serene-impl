@@ -6,14 +6,23 @@ import Authorization from "../Page/Auth/Authorization";
 import { useState } from "react";
 
 export default function MyRouter() {
-    const [valid, setValid] = useState<boolean>(false); // Create valid state in MyRouter
+  const [valid, setValid] = useState<boolean>(false);
 
   return (
     <Routes>
-      <Route path="/for-serene-impl" element={<Authorization setValidForRouter={setValid} />} />
-      <Route path="/for-serene-impl/1" element={ valid ? <App /> : <NotFound />} />
-      <Route path="/for-serene-impl/2" element={ valid ? <Normal />: <NotFound/>} />
-      
+      <Route
+        path="/for-serene-impl"
+        element={<Authorization setValidForRouter={setValid} />}
+      />
+      <Route
+        path="/for-serene-impl/1"
+        element={valid ? <App /> : <NotFound />}
+      />
+      <Route
+        path="/for-serene-impl/2"
+        element={true ? <Normal /> : <NotFound />}
+      />
+
       <Route path="/for-serene-impl/*" element={<NotFound />} />
     </Routes>
   );
