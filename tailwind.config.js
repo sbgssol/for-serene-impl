@@ -28,7 +28,7 @@ module.exports = withMT({
         },
         animistaSlideInEllipticRight: {
           "0%": {
-            transform: "translateX(800px) rotateY(-30deg) scale(0)",
+            transform: "translateX(400px) rotateY(-30deg) scale(0)",
             transformOrigin: "-100% 50%",
             opacity: "0",
           },
@@ -40,7 +40,7 @@ module.exports = withMT({
         },
         aniBounceInRight: {
           "0%": {
-            transform: "translateX(300px)",
+            transform: "translateX(200px)",
             animationTimingFunction: "ease-in",
             opacity: "0",
           },
@@ -74,6 +74,45 @@ module.exports = withMT({
             animationTimingFunction: "ease-out",
           },
         },
+        slideInBlurredRight: {
+          "0%": {
+            transform: "translateX(100px) scaleX(1.5) scaleY(0.2)",
+            transformOrigin: "0% 50%",
+            filter: "blur(40px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0) scaleY(1) scaleX(1)",
+            transformOrigin: "50% 50%",
+            filter: "blur(0)",
+            opacity: "1",
+          },
+        },
+        TrackingInExpand: {
+          "0%": {
+            letterSpacing: "-0.5em",
+            opacity: "0",
+          },
+          "40%": {
+            opacity: "0.6",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        TrackingInContract: {
+          "0%": {
+            letterSpacing: "1em",
+            opacity: "0",
+          },
+          "40%": {
+            opacity: "0.6",
+          },
+          "100%": {
+            letterSpacing: "normal",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
@@ -84,6 +123,12 @@ module.exports = withMT({
         aniBounceInRight: "aniBounceInRight 1.1s both",
         animistaSlideInEllipticRight:
           "animistaSlideInEllipticRight 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        slideInBlurredRight:
+          "slideInBlurredRight 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both",
+        TrackingInExpand:
+          "TrackingInExpand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
+        TrackingInContract:
+          "TrackingInContract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
       },
 
       fontFamily: {

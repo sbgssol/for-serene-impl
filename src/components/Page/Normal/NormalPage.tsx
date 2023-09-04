@@ -13,35 +13,30 @@ export default function Normal() {
   const [animation5, setAnimation5] = useState(false);
 
   const genLeft = (msg: string) => {
-    if (animation1) {
-      return (
-        <Typography
-          textGradient
-          color="pink"
-          className="text-6xl font-signika animate-zoomOut"
-        >
-          {msg}
-        </Typography>
-      );
-    } else {
-      return (
-        <Typography
-          textGradient
-          color="pink"
-          className="text-6xl font-signika opacity-0"
-        >
-          {msg}
-        </Typography>
-      );
-    }
+    return (
+      <Typography
+        textGradient
+        color="pink"
+        className={`text-6xl font-signika uppercase font-black ${
+          animation1 ? "animate-TrackingInContract" : "opacity-0"
+        }`}
+      >
+        {msg}
+      </Typography>
+    );
   };
 
   const genRightTop = (msg: string) => {
+    // return (
+    //   <TypingText
+    //     msg={msg}
+    //     style={`text-6xl font-marmelad font-medium text-pink-400 ${
+    //       animation3 ? "" : "opacity-0"
+    //     }`}
+    //   ></TypingText>
+    // );
     if (animation3) {
       return (
-        // <Typography className="text-6xl font-marmelad font-medium">
-        //     {msg}
-        // </Typography>
         <TypingText
           msg={msg}
           style="text-6xl font-marmelad font-medium text-pink-400"
@@ -57,55 +52,40 @@ export default function Normal() {
   };
 
   const genRightCenter = (msg: string) => {
-    if (animation4) {
-      return (
-        <Typography className="text-6xl font-marmelad font-semibold animate-aniBounceInRight">
-          {msg}
-        </Typography>
-      );
-    } else {
-      return (
-        <Typography className="text-6xl font-marmelad font-semibold opacity-0">
-          {msg}
-        </Typography>
-      );
-    }
+    let dynamicClasses = animation4 ? "animate-TrackingInExpand" : "opacity-0";
+    return (
+      <Typography
+        className={`text-6xl font-marmelad font-semibold ${dynamicClasses}`}
+      >
+        {msg}
+      </Typography>
+    );
   };
 
   const genRightBottom = (msg: string) => {
-    if (animation5) {
-      return (
-        <Typography className="text-7xl font-marmelad font-bold">
-          {msg}
-        </Typography>
-      );
-    } else {
-      return (
-        <Typography className="text-7xl font-marmelad font-bold opacity-0">
-          {msg}
-        </Typography>
-      );
-    }
+    let dynamicClasses = animation5 ? "animate-TrackingInExpand" : "opacity-0";
+    return (
+      <Typography
+        className={`text-7xl font-marmelad font-bold ${dynamicClasses}`}
+      >
+        {msg}
+      </Typography>
+    );
   };
 
   const genAllRight = () => {
-    if (animation2) {
-      return (
-        <div className="space-y-5 border-l-8 border-pink-300 bg-pink-100 px-2 py-4 mx-2 animate-animistaSlideInEllipticRight">
-          {genRightTop("Uja ok")}
-          {genRightCenter("Qed xm")}
-          {genRightBottom("Bgqynx rr")}
-        </div>
-      );
-    } else {
-      return (
-        <div className="space-y-5 border-l-8 border-pink-300 bg-pink-100 px-2 py-4 mx-2 opacity-0">
-          {genRightTop("Uja ok")}
-          {genRightCenter("Qed xm")}
-          {genRightBottom("Bgqynx rr")}
-        </div>
-      );
-    }
+    let dynamicClasses = animation2
+      ? "animate-slideInBlurredRight"
+      : "opacity-0";
+    return (
+      <div
+        className={`space-y-5 border-l-4 border-pink-300  px-4 mx-4 ${dynamicClasses}`}
+      >
+        {genRightTop("Uja ok")}
+        {genRightCenter("Qed xm")}
+        {genRightBottom("Bgqynx rr")}
+      </div>
+    );
   };
 
   const handleNextClick = () => {

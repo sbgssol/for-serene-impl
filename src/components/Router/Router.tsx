@@ -20,7 +20,7 @@ export default function MyRouter() {
       />
       <Route
         path="/for-serene-impl/2"
-        element={true ? <Normal /> : <NotFound />}
+        element={valid ? <Normal /> : <NotFound />}
       />
 
       <Route path="/for-serene-impl/*" element={<NotFound />} />
