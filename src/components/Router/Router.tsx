@@ -21,7 +21,7 @@ export default function MyRouter() {
       />
       <Route
         path="/for-serene-impl/2"
-        element={valid ? <Words /> : <NotFound />}
+        element={true ? <Words /> : <NotFound />}
       />
       <Route
         path="/for-serene-impl/3"
