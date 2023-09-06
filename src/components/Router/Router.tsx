@@ -21,8 +21,12 @@ export default function MyRouter() {
       />
       <Route
         path="/for-serene-impl/2"
-        element={true ? <Words /> : <NotFound />}
+        element={valid ? <Words /> : <NotFound />}
       />
+      {/* <Route
+        path="/for-serene-impl/3"
+        element={valid ? <Album /> : <NotFound />}
+      /> */}
       <Route
         path="/for-serene-impl/3"
         element={valid ? <Normal /> : <NotFound />}
