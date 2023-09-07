@@ -1,9 +1,9 @@
 import { Button, Input, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useGlobal } from "../../../context/useGlobal";
+// import { useGlobal } from "../../../context/useGlobal";
 interface AuthorizationProps {
-  setValidForRouter: (valid: boolean) => void; // Define a prop to set the valid state in MyRouter
+  setValidForRouter: (valid: boolean) => void;
 }
 
 export default function Authorization({
@@ -35,7 +35,7 @@ export default function Authorization({
     return () => {};
   }, [input]);
 
-  const global = useGlobal();
+  // const global = useGlobal();
 
   return (
     <div className="w-screen flex justify-center mt-6">
@@ -45,7 +45,7 @@ export default function Authorization({
           color="pink"
           className="flex items-center gap-1 font-normal mb-2 font-signika"
         >
-          {global.unicodeToHex("Where is the place that I had a first kiss on your lips?")}
+          Where is the place that I had a first kiss on your lips?
         </Typography>
         <Input
           crossOrigin={undefined}
@@ -63,7 +63,7 @@ export default function Authorization({
           }`}
           onClick={handleContinueClicked}
         >
-          Continue →
+          Continue ▶
         </Button>
       </div>
     </div>

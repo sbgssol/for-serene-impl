@@ -96,11 +96,11 @@ export default function Album() {
               </div>
             )}
           >
-            <img src={Img1} className="h-[500px] w-[600px] object-scale-down" />
-            <img src={Img2} className="h-[500px] w-[600px] object-scale-down" />
-            <img src={Img3} className="h-[500px] w-[600px] object-scale-down" />
-            <img src={Img4} className="h-[500px] w-[600px] object-scale-down" />
-            <img src={Img5} className="h-[500px] w-[600px] object-scale-down" />
+            <img src={Img1} className="mx-auto h-[500px] object-scale-down" />
+            <img src={Img2} className="mx-auto h-[500px] object-scale-down" />
+            <img src={Img3} className="mx-auto h-[500px] object-scale-down" />
+            <img src={Img4} className="mx-auto h-[500px] object-scale-down" />
+            <img src={Img5} className="mx-auto h-[500px] object-scale-down" />
           </Carousel>
         </DialogBody>
         <DialogFooter>Footer</DialogFooter>
