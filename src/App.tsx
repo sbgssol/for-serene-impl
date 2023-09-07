@@ -1,16 +1,11 @@
 // import { useNavigate } from "react-router-dom";
-import { Button, Typography } from "@material-tailwind/react";
-import RightIcon from "./assets/right.svg";
-import LeftIcon from "./assets/left.svg";
+import { Typography } from "@material-tailwind/react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Windows from "./components/Windows";
+// import { useGlobal } from "./context/useGlobal";
 
 function App() {
-  // const navigate = useNavigate();
-  const handlePrevClick = () => {
-    alert("Prev clicked!");
-  };
-
   const [flyIn1, setFlyIn1] = useState(true);
   const [flyIn2, setFlyIn2] = useState(false);
   const [flyIn3, setFlyIn3] = useState(false);
@@ -148,45 +143,27 @@ function App() {
   // const genHere = (msg: string) => {
 
   // };
-
+  // const global = useGlobal();
   return (
     <>
-      <div className="flex flex-col items-center select-none">
-        <div className="container flex items-center justify-center bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-lg drop-shadow-lg shadow-pink-800/80">
-          <div className="flex flex-col items-center">
-            <div className="header flex justify-center mt-10 place-items-baseline">
-              {genThanks("Cảm ơn em,")}
-              <div className="sub-header flex flex-col items-start">
-                <div className="flex">{genHeader("Công chúa")}</div>
-                {genMine("của anh")}
-                <div className="flex justify-between w-full">
-                  <div className="text-center">{genBecause("vì em còn ")}</div>
-                  <div className="w-full text-center flex ">
-                    {genHead("Ở đây")}
-                    {genHeart("❤️")}
-                  </div>
+      <Windows prevDisabled nextClick={handleNextClick}>
+        <div className="relative top-1/2 -translate-y-1/2 flex flex-col items-center">
+          <div className="header flex justify-center place-items-baseline">
+            {genThanks("Cảm ơn em")}
+            <div className="sub-header flex flex-col items-start">
+              <div className="flex">{genHeader("công chúa")}</div>
+              {genMine("của anh")}
+              <div className="flex justify-between w-full">
+                <div className="text-center">{genBecause("vì em đã")}</div>
+                <div className="w-full text-center flex ">
+                  {genHead("ở đây")}
+                  {genHeart("❤️")}
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div className="flex place-content-between w-80 md:w-[720px] lg:w-[800px] mt-5">
-          <Button
-            className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
-            disabled
-            onClick={handlePrevClick}
-          >
-            <img src={LeftIcon} alt="" />
-          </Button>
-          <Button
-            className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
-            onClick={handleNextClick}
-          >
-            <img src={RightIcon} alt="" />
-          </Button>
-        </div>
-      </div>
+      </Windows>
     </>
   );
 }

@@ -1,9 +1,8 @@
-import { Button, Typography } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-import RightIcon from "../../../assets/right.svg";
-import LeftIcon from "../../../assets/left.svg";
 import { useEffect, useState } from "react";
 import Album from "./Album";
+import Windows from "../../Windows";
 
 export default function Words() {
   const navigate = useNavigate();
@@ -52,7 +51,21 @@ export default function Words() {
 
   return (
     <>
-      <div className="flex flex-col items-center select-none">
+      <Windows
+        prevClick={() => {
+          navigate(-1);
+        }}
+        nextClick={() => {
+          navigate("/for-serene-impl/3");
+        }}
+      >
+        <Typography className="font-marmelad text-pink-200">
+          {content}
+          <Album />
+          <span className="inline-block w-1 h-4 ml-1 bg-white"></span>
+        </Typography>
+      </Windows>
+      {/* <div className="flex flex-col items-center select-none">
         <div className="container bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
           <Typography className="font-marmelad text-pink-200">
             {content}
@@ -78,7 +91,7 @@ export default function Words() {
             <img src={RightIcon} alt="" />
           </Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
