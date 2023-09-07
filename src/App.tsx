@@ -91,7 +91,7 @@ function App() {
     );
   };
   const genHeart = (msg: string) => {
-    let classes = flyIn5 ? "animate-Pulse" : "opacity-0";
+    let classes = flyIn5 ? "animate-PulseMedium" : "opacity-0";
     return (
       <>
         <Typography variant="h2" className={`text-6xl py-1  ${classes}`}>

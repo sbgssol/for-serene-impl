@@ -114,9 +114,14 @@ module.exports = withMT({
           },
         },
 
-        Pulse: {
+        PulseSmall: {
           "0%": {},
-          "50%": { transform: "scale(1.05)" },
+          "50%": { transform: "scale(1.02)" },
+          "100%": {},
+        },
+        PulseMedium: {
+          "0%": {},
+          "50%": { transform: "scale(1.2)" },
           "100%": {},
         },
       },
@@ -135,7 +140,8 @@ module.exports = withMT({
           "TrackingInExpand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
         TrackingInContract:
           "TrackingInContract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
-        Pulse: "Pulse 1000ms ease-out infinite",
+          PulseSmall: "PulseSmall 1000ms ease-out infinite",
+          PulseMedium: "PulseMedium 1000ms ease-out infinite",
       },
 
       fontFamily: {

@@ -56,7 +56,7 @@ export default function Authorization({
           ripple={valid ? true : false}
           color={valid ? "pink" : "gray"}
           className={`mt-2 w-full ${
-            valid ? "animate-Pulse" : "hover:cursor-not-allowed"
+            valid ? "animate-PulseSmall" : "hover:cursor-not-allowed"
           }`}
           onClick={handleContinueClicked}
         >
