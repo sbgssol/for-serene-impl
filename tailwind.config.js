@@ -116,7 +116,7 @@ module.exports = withMT({
 
         Pulse: {
           "0%": {},
-          "50%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(1.05)" },
           "100%": {},
         },
       },
