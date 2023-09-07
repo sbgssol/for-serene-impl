@@ -65,54 +65,30 @@ function App() {
   };
 
   const genHeader = (msg: string) => {
-    if (flyIn2) {
-      return (
-        <>
-          <Typography
-            variant="h2"
-            className={`font-marmelad text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase animate-flyRight`}
-          >
-            {msg}
-          </Typography>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <Typography
-            variant="h2"
-            className={`font-marmelad text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase opacity-0`}
-          >
-            {msg}
-          </Typography>
-        </>
-      );
-    }
+    let classes = flyIn2 ? "animate-flyRight" : "opacity-0";
+    return (
+      <>
+        <Typography
+          variant="h2"
+          className={`font-marmelad text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase shadow-md shadow-pink-800/80 ${classes} `}
+        >
+          {msg}
+        </Typography>
+      </>
+    );
   };
   const genHead = (msg: string) => {
-    if (flyIn5) {
-      return (
-        <>
-          <Typography
-            variant="h2"
-            className={`font-marmelad text-pink-50 bg-pink-300 text-6xl px-3 py-1 box-content rounded-md uppercase animate-flyUp`}
-          >
-            {msg}
-          </Typography>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <Typography
-            variant="h2"
-            className={`font-marmelad text-pink-50 bg-pink-300 text-6xl px-3 py-1 box-content rounded-md uppercase opacity-0`}
-          >
-            {msg}
-          </Typography>
-        </>
-      );
-    }
+    let classes = flyIn5 ? "animate-flyUp" : "opacity-0";
+    return (
+      <>
+        <Typography
+          variant="h2"
+          className={`font-marmelad text-pink-50 bg-pink-300 shadow-lg shadow-pink-600/80 text-6xl px-3 py-1 box-content rounded-md uppercase ${classes}`}
+        >
+          {msg}
+        </Typography>
+      </>
+    );
   };
   const genHeart = (msg: string) => {
     let classes = flyIn5 ? "animate-Pulse" : "opacity-0";
@@ -176,7 +152,7 @@ function App() {
   return (
     <>
       <div className="flex flex-col items-center select-none">
-        <div className="container flex items-center justify-center bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
+        <div className="container flex items-center justify-center bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-lg drop-shadow-lg shadow-pink-800/80">
           <div className="flex flex-col items-center">
             <div className="header flex justify-center mt-10 place-items-baseline">
               {genThanks("Cảm ơn em,")}
