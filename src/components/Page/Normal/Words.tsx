@@ -65,33 +65,6 @@ export default function Words() {
           <span className="inline-block w-1 h-4 ml-1 bg-white"></span>
         </Typography>
       </Windows>
-      {/* <div className="flex flex-col items-center select-none">
-        <div className="container bg-[#333] w-[800px] h-[600px] mt-9 rounded-xl shadow-md shadow-pink-800/70">
-          <Typography className="font-marmelad text-pink-200">
-            {content}
-            <Album />
-            <span className="inline-block w-1 h-4 ml-1 bg-white"></span>
-          </Typography>
-        </div>
-        <div className="flex place-content-between w-80 md:w-[720px] lg:w-[800px] mt-5">
-          <Button
-            className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
-            onClick={() => {
-              navigate(-1);
-            }}
-          >
-            <img src={LeftIcon} alt="" />
-          </Button>
-          <Button
-            className="p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-150 duration-150"
-            onClick={() => {
-              navigate("/for-serene-impl/3");
-            }}
-          >
-            <img src={RightIcon} alt="" />
-          </Button>
-        </div>
-      </div> */}
     </>
   );
 }

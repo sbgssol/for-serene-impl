@@ -5,6 +5,7 @@ import NotFound from "../Page/Error/NotFound";
 import Authorization from "../Page/Auth/Authorization";
 import { useState } from "react";
 import Words from "../Page/Normal/Words";
+import MissAndLove from "../Page/Normal/MissAndLove";
 
 export default function MyRouter() {
   const [valid, setValid] = useState<boolean>(false);
@@ -23,13 +24,13 @@ export default function MyRouter() {
         path="/for-serene-impl/2"
         element={valid ? <Words /> : <NotFound />}
       />
-      {/* <Route
-        path="/for-serene-impl/3"
-        element={valid ? <Album /> : <NotFound />}
-      /> */}
       <Route
         path="/for-serene-impl/3"
         element={valid ? <Normal /> : <NotFound />}
+      />
+      <Route
+        path="/for-serene-impl/4"
+        element={valid ? <MissAndLove /> : <NotFound />}
       />
 
       <Route path="/for-serene-impl/*" element={<NotFound />} />

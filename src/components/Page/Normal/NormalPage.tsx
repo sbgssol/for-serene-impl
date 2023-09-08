@@ -3,7 +3,6 @@ import RightIcon from "../../../assets/right.svg";
 import LeftIcon from "../../../assets/left.svg";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import TypingText from "../../Texts/Typing";
 
 export default function Normal() {
   const [animation1, setAnimation1] = useState(true);
@@ -27,32 +26,18 @@ export default function Normal() {
   };
 
   const genRightTop = (msg: string) => {
-    // return (
-    //   <TypingText
-    //     msg={msg}
-    //     style={`text-6xl font-marmelad font-medium text-pink-400 ${
-    //       animation3 ? "" : "opacity-0"
-    //     }`}
-    //   ></TypingText>
-    // );
-    if (animation3) {
-      return (
-        <TypingText
-          msg={msg}
-          style="text-6xl font-marmelad font-medium text-pink-400"
-        ></TypingText>
-      );
-    } else {
-      return (
-        <Typography className="text-6xl font-marmelad font-medium opacity-0">
-          {msg}
-        </Typography>
-      );
-    }
+    let dynamicClasses = animation3 ? "animate-ScaleInTopRight" : "opacity-0";
+    return (
+      <Typography
+        className={`text-6xl font-marmelad font-medium ${dynamicClasses}`}
+      >
+        {msg}
+      </Typography>
+    );
   };
 
   const genRightCenter = (msg: string) => {
-    let dynamicClasses = animation4 ? "animate-TrackingInExpand" : "opacity-0";
+    let dynamicClasses = animation4 ? "animate-ScaleInRight" : "opacity-0";
     return (
       <Typography
         className={`text-6xl font-marmelad font-semibold ${dynamicClasses}`}
@@ -63,7 +48,9 @@ export default function Normal() {
   };
 
   const genRightBottom = (msg: string) => {
-    let dynamicClasses = animation5 ? "animate-TrackingInExpand" : "opacity-0";
+    let dynamicClasses = animation5
+      ? "animate-ScaleInBottomRight"
+      : "opacity-0";
     return (
       <Typography
         className={`text-7xl font-marmelad font-bold ${dynamicClasses}`}
@@ -109,6 +96,7 @@ export default function Normal() {
       setAnimation5(!animation5);
       return;
     }
+    navigate("/for-serene-impl/4");
   };
 
   const navigate = useNavigate();

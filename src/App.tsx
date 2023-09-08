@@ -149,15 +149,16 @@ function App() {
       <Windows prevDisabled nextClick={handleNextClick}>
         <div className="relative top-1/2 -translate-y-1/2 flex flex-col items-center">
           <div className="header flex justify-center place-items-baseline">
-            {genThanks("Cảm ơn em")}
+            {genThanks("Www ww ww")}
             <div className="sub-header flex flex-col items-start">
-              <div className="flex">{genHeader("công chúa")}</div>
-              {genMine("của anh")}
+              <div className="flex">{genHeader("G101 1101")}</div>
+              {genMine("111 011")}
               <div className="flex justify-between w-full">
-                <div className="text-center">{genBecause("vì em đã")}</div>
+                <div className="text-center">{genBecause("10 11 00")}</div>
                 <div className="w-full text-center flex ">
-                  {genHead("ở đây")}
-                  {genHeart("❤️")}
+                  {genHead("0 011")}
+                  {genHeart("0")}
+                  {/* {genHeart("❤️")} */}
                 </div>
               </div>
             </div>

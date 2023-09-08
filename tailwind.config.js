@@ -124,6 +124,124 @@ module.exports = withMT({
           "50%": { transform: "scale(1.2)" },
           "100%": {},
         },
+        ScaleInTopRight: {
+          "0%": {
+            transform: "scale(0)",
+            transformOrigin: "100% 0%",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+        },
+        ScaleInRight: {
+          "0%": {
+            transform: "scale(0)",
+            transformOrigin: "100% 50%",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            transformOrigin: "100% 50%",
+            opacity: "1",
+          },
+        },
+        ScaleInBottomRight: {
+          "0%": {
+            transform: "scale(0)",
+            transformOrigin: "100% 100%",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            transformOrigin: "100% 100%",
+            opacity: "1",
+          },
+        },
+        bounceInBottom: {
+          "0%": {
+            transform: "translateY(200px)",
+            animationTimingFunction: "ease-in",
+            opacity: "0",
+          },
+          "38%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "ease-out",
+            opacity: "1",
+          },
+          "55%": {
+            transform: "translateY(65px)",
+            animationTimingFunction: "ease-in",
+          },
+          "72%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "ease-out",
+          },
+          "81%": {
+            transform: "translateY(28px)",
+            animationTimingFunction: "ease-in",
+          },
+          "90%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "ease-out",
+          },
+          "95%": {
+            transform: "translateY(8px)",
+            animationTimingFunction: "ease-in",
+          },
+          "100%": {
+            transform: "translateY(0)",
+            animationTimingFunction: "ease-out",
+          },
+        },
+        bounceInRight: {
+          "0%": {
+            transform: "translateX(600px)",
+            animationTimingFunction: "ease-in",
+            opacity: "0",
+          },
+          "38%": {
+            transform: "translateX(0)",
+            animationTimingFunction: "ease-out",
+            opacity: "1",
+          },
+          "55%": {
+            transform: "translateX(68px)",
+            animationTimingFunction: "ease-in",
+          },
+          "72%": {
+            transform: "translateX(0)",
+            animationTimingFunction: "ease-out",
+          },
+          "81%": {
+            transform: "translateX(32px)",
+            animationTimingFunction: "ease-in",
+          },
+          "90%": {
+            transform: "translateX(0)",
+            animationTimingFunction: "ease-out",
+          },
+          "95%": {
+            transform: "translateX(8px)",
+            animationTimingFunction: "ease-in",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            animationTimingFunction: "ease-out",
+          },
+        },
+        slideInRight: {
+          "0%": {
+            transform: "translateX(100px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
@@ -140,13 +258,32 @@ module.exports = withMT({
           "TrackingInExpand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
         TrackingInContract:
           "TrackingInContract 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000) both",
-          PulseSmall: "PulseSmall 1000ms ease-out infinite",
-          PulseMedium: "PulseMedium 1000ms ease-out infinite",
+        PulseSmall: "PulseSmall 1000ms ease-out infinite",
+        PulseMedium: "PulseMedium 1000ms ease-out infinite",
+        ScaleInTopRight:
+          "ScaleInTopRight 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        ScaleInRight:
+          "ScaleInRight 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        ScaleInBottomRight:
+          "ScaleInBottomRight 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        bounceInBottom: "bounceInBottom 1000ms both",
+        bounceInRight: "bounceInRight 1000ms both",
+        slideInRight:
+          "slideInRight 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
       },
 
       fontFamily: {
         signika: ['"Signika Negative"'],
         marmelad: ["Marmelad"],
+        lobster: ['"Lobster"'],
+        paytoneOne: ['"Paytone One"'],
+        bungee: ['"Bungee"'],
+        bungeeInline: ['"Bungee Inline"'],
+        bungeeShade: ['"Bungee Shade"'],
+        alfaSlabOne: ['"Alfa Slab One"'],
+        lalezar: ['"Lalezar"'],
+        phuDu: ['"Phudu"'],
+        sarabun: ['"Sarabun"'],
       },
     },
   },
