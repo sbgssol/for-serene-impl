@@ -45,7 +45,7 @@ export default function Authorization({
           color="pink"
           className="flex items-center gap-1 font-normal mb-2 font-signika"
         >
-          Where is the place that I had a first kiss on your lips?
+          Do you remember the place where I gave you our first kiss on your lips?
         </Typography>
         <Input
           crossOrigin={undefined}
