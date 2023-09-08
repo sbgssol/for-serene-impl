@@ -4,8 +4,8 @@ import {
   Dialog,
   DialogBody,
   DialogFooter,
-  DialogHeader,
   IconButton,
+  Typography,
 } from "@material-tailwind/react";
 import { useState } from "react";
 import Img1 from "../../../assets/1.jpg";
@@ -19,19 +19,32 @@ export default function Album() {
 
   const handleOpen = () => setOpen((cur) => !cur);
 
+  let arrowColor = "#F2789F";
+  let arrowWidth = 3;
+
+  let imagesAndDescriptions = [
+    { path: Img1, desc: "Image 1" },
+    { path: Img2, desc: "Image 2" },
+    { path: Img3, desc: "Image 3" },
+    { path: Img4, desc: "Image 4" },
+    { path: Img5, desc: "Image 5" },
+  ];
+
+  const [index, setIndex] = useState(0);
+
   return (
     <>
-      <Button onClick={handleOpen} variant="gradient">
+      <Button onClick={handleOpen} variant="gradient" color="pink">
         Open Dialog
       </Button>
       <Dialog
         open={open}
         handler={handleOpen}
         size="md"
-        className="bg-pink-50 opacity-25"
+        className="bg-[#333] border-2 border-pink-600 drop-shadow-md shadow-lg shadow-pink-400/60"
       >
-        <DialogHeader>Its a simple dialog.</DialogHeader>
-        <DialogBody divider>
+        {/* <DialogHeader> </DialogHeader> */}
+        <DialogBody className="rounded-sm">
           <Carousel
             className="rounded-xl"
             prevArrow={({ handlePrev }) => (
@@ -39,15 +52,21 @@ export default function Album() {
                 variant="text"
                 color="white"
                 size="lg"
-                onClick={handlePrev}
-                className="!absolute top-2/4 left-4 -translate-y-2/4"
+                onClick={() => {
+                  if (index > 0) {
+                    setIndex((prev) => prev - 1);
+                  }
+                  handlePrev();
+                }}
+                ripple={false}
+                className="!absolute top-2/4 left-4 -translate-y-2/4 hover:scale-125 hover:bg-transparent active:bg-transparent active:scale-75"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="red"
+                  strokeWidth={arrowWidth}
+                  stroke={arrowColor}
                   className="h-6 w-6"
                 >
                   <path
@@ -63,15 +82,21 @@ export default function Album() {
                 variant="text"
                 color="white"
                 size="lg"
-                onClick={handleNext}
-                className="!absolute top-2/4 !right-4 -translate-y-2/4"
+                onClick={() => {
+                  if (index < imagesAndDescriptions.length - 1) {
+                    setIndex((prev) => prev + 1);
+                  }
+                  handleNext();
+                }}
+                ripple={false}
+                className="!absolute top-2/4 !right-4 -translate-y-2/4 hover:scale-125 hover:bg-transparent active:bg-transparent active:scale-75"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={2}
-                  stroke="red"
+                  strokeWidth={arrowWidth}
+                  stroke={arrowColor}
                   className="h-6 w-6"
                 >
                   <path
@@ -88,7 +113,7 @@ export default function Album() {
                   <span
                     key={i}
                     className={`block h-1 cursor-pointer rounded-2xl transition-all content-[''] ${
-                      activeIndex === i ? "w-8 bg-white" : "w-4 bg-white/50"
+                      activeIndex === i ? "w-8 bg-pink-200" : "w-4 bg-white/50"
                     }`}
                     onClick={() => setActiveIndex(i)}
                   />
@@ -96,14 +121,29 @@ export default function Album() {
               </div>
             )}
           >
-            <img src={Img1} className="mx-auto h-[500px] object-scale-down" />
-            <img src={Img2} className="mx-auto h-[500px] object-scale-down" />
-            <img src={Img3} className="mx-auto h-[500px] object-scale-down" />
-            <img src={Img4} className="mx-auto h-[500px] object-scale-down" />
-            <img src={Img5} className="mx-auto h-[500px] object-scale-down" />
+            {imagesAndDescriptions.map((img, index) => (
+              <img
+                key={index}
+                src={img.path}
+                className="mx-auto h-[500px] object-scale-down rounded-md"
+              />
+            ))}
+
+            {/* <img src={Img1} className="mx-auto h-[500px] object-scale-down rounded-md" />
+            <img src={Img2} className="mx-auto h-[500px] object-scale-down rounded-md" />
+            <img src={Img3} className="mx-auto h-[500px] object-scale-down rounded-md" />
+            <img src={Img4} className="mx-auto h-[500px] object-scale-down rounded-md" />
+            <img src={Img5} className="mx-auto h-[500px] object-scale-down rounded-md" /> */}
           </Carousel>
         </DialogBody>
-        <DialogFooter>Footer</DialogFooter>
+        <DialogFooter className="justify-center">
+          <Typography
+            variant="paragraph"
+            className="text-pink-100 font-marmelad"
+          >
+            {imagesAndDescriptions[index].desc}
+          </Typography>
+        </DialogFooter>
       </Dialog>
     </>
   );
