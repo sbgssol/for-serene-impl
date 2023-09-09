@@ -372,6 +372,26 @@ module.exports = withMT({
             opacity: "0",
           },
         },
+        scaleInCenter: {
+          "0%": {
+            transform: "scale(0)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+        },
+        swirlInForward: {
+          "0%": {
+            transform: "rotate(-540deg) scale(0)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "rotate(0) scale(1)",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
@@ -421,6 +441,9 @@ module.exports = withMT({
           "puffInCenter 0.4s cubic-bezier(0.470, 0.000, 0.745, 0.715) both",
         puffOutCenter:
           "puffOutCenter 0.4s cubic-bezier(0.470, 0.000, 0.745, 0.715) both",
+        scaleInCenter:
+          "scaleInCenter 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        swirlInForward: "swirlInForward 500ms ease-out both",
       },
 
       fontFamily: {

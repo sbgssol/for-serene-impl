@@ -16,16 +16,25 @@ export default function Loves() {
   const [fontSize, setfontSize] = useState("text-8xl");
   const [inAnimation, setinAnimation] = useState("animate-flyInUp");
   const [outAnimation, setOutAnimation] = useState("animate-flyOutUp");
+  const [stateChanged, setstateChanged] = useState(false);
+  const [needCover, setneedCover] = useState(false);
 
   useEffect(() => {
     console.log("word idx changed: " + wordIdx);
     if (wordIdx > 2) {
       settextColor("text-pink-600");
-      setwindowColor("bg-[#FFE5E5]");
       setTextFont("font-lilitaOne");
       setfontSize("text-9xl");
       setinAnimation("animate-puffInCenter");
       setOutAnimation("animate-puffOutCenter");
+      if (!stateChanged) {
+        setneedCover(true);
+        settopAnimation(false);
+        setmiddleAnimation(false);
+        setbottomInAnimation(false);
+        setbottomOutAnimation(false);
+        setstateChanged((prev) => !prev);
+      }
     }
   }, [wordIdx]);
 
@@ -92,7 +101,7 @@ export default function Loves() {
     return (
       <>
         <Typography
-          className={`text-7xl uppercase font-semibold font-patuaOne ${textColor} ${dynamicClasses}`}
+          className={`text-7xl uppercase font-semibold ${textFont} ${textColor} ${dynamicClasses}`}
         >
           {wordIdx < 3 ? firstTop() : secondTop()}
         </Typography>
@@ -105,7 +114,7 @@ export default function Loves() {
     return (
       <>
         <Typography className={`text-3xl ${textColor} ${dynamicClasses}`}>
-          {wordIdx < 3 ? "without" : "with all my"}
+          {wordIdx < 3 ? "without any" : "with all of my"}
         </Typography>
       </>
     );
@@ -129,16 +138,26 @@ export default function Loves() {
     );
   };
 
-  return (
-    <>
-      <Windows
-        prevClick={() => {
-          navigate(-1);
-        }}
-        nextClick={handleNextClick}
-        bg={windowColor}
-        className="transition-colors duration-150 ease-out"
-      >
+  const genCover = () => {
+    if (needCover) {
+      setTimeout(() => {
+        setneedCover(false);
+        setwindowColor("bg-[#FFE5E5]");
+        settopAnimation(true);
+      }, 500);
+      return (
+        <>
+          <div className="bg-[#FFE5E5] animate-scaleInCenter w-full h-full">
+            <div className="relative top-1/2 -translate-y-1/2 h-1/2 flex flex-col justify-center">
+              <div className="h-2/6 flex items-center justify-center"></div>
+              <div className="h-1/6 relative left-0 flex items-center justify-center box-border "></div>
+              <div className="flex flex-col justify-center items-center"></div>
+            </div>
+          </div>
+        </>
+      );
+    } else {
+      return (
         <>
           <div className="relative top-1/2 -translate-y-1/2 h-1/2 flex flex-col justify-center">
             <div className="h-2/6 flex items-center justify-center">
@@ -152,6 +171,21 @@ export default function Loves() {
             </div>
           </div>
         </>
+      );
+    }
+  };
+
+  return (
+    <>
+      <Windows
+        prevClick={() => {
+          navigate(-1);
+        }}
+        nextClick={handleNextClick}
+        bg={windowColor}
+        // className={`transition-colors duration-150 ease-out`}
+      >
+        {genCover()}
       </Windows>
     </>
   );

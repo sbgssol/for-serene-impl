@@ -56,7 +56,7 @@ export default function MissAndLove() {
         setAnimation2(false);
         setAnimation3(false);
         setBgColor("bg-[#FFE5E5]");
-        setTextColor("text-[#333]");
+        setTextColor("text-pink-700");
         setTextFont("font-phuDu");
       }, 550);
       return;
