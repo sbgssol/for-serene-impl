@@ -242,6 +242,98 @@ module.exports = withMT({
             opacity: "1",
           },
         },
+        slideOutTop: {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateY(-100px)",
+            opacity: "0",
+          },
+        },
+        slideOutBottom: {
+          "0%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateY(100px)",
+            opacity: "0",
+          },
+        },
+        scaleOutTop: {
+          "0%": {
+            transform: "scaleY(1)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scaleY(0)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+        },
+        scaleOutBottom: {
+          "0%": {
+            transform: "scaleY(1)",
+            transformOrigin: "0% 100%",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scaleY(0)",
+            transformOrigin: "0% 100%",
+            opacity: "1",
+          },
+        },
+        scaleOutTopFromBottom: {
+          "0%": {
+            transform: "scaleY(0)",
+            transformOrigin: "0% 100%",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scaleY(1)",
+            transformOrigin: "0% 100%",
+            opacity: "1",
+          },
+        },
+        scaleOutBottomFromTop: {
+          "0%": {
+            transform: "scaleY(0)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scaleY(1)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+        },
+        scaleInTop: {
+          "0%": {
+            transform: "scaleY(0)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scaleY(1)",
+            transformOrigin: "100% 0%",
+            opacity: "1",
+          },
+        },
+        scaleInBottom: {
+          "0%": {
+            transform: "scaleY(0)",
+            transformOrigin: "0% 100%",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scaleY(1)",
+            transformOrigin: "0% 100%",
+            opacity: "1",
+          },
+        },
       },
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
@@ -270,6 +362,22 @@ module.exports = withMT({
         bounceInRight: "bounceInRight 1000ms both",
         slideInRight:
           "slideInRight 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both",
+        slideOutTop:
+          "slideOutTop 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        slideOutBottom:
+          "slideOutBottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        scaleOutTop:
+          "scaleOutTop 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        scaleOutBottom:
+          "scaleOutBottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        scaleOutTopFromBottom:
+          "scaleOutTopFromBottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        scaleOutBottomFromTop:
+          "scaleOutBottomFromTop 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        scaleInTop:
+          "scaleInTop 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        scaleInBottom:
+          "scaleInBottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
       },
 
       fontFamily: {

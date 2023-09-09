@@ -12,6 +12,8 @@ export default function MissAndLove() {
   const [animation1, setAnimation1] = useState(false);
   const [animation2, setAnimation2] = useState(false);
   const [animation3, setAnimation3] = useState(false);
+  const [slideIn, setSlideIn] = useState(false);
+  const [slideOut, setSlideOut] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,29 +27,56 @@ export default function MissAndLove() {
       setAnimation0((prev) => !prev);
       return;
     }
+    // console.log(1);
     if (!animation1) {
       setAnimation1((prev) => !prev);
       return;
     }
+    // console.log(2);
     if (!animation2) {
       setAnimation2((prev) => !prev);
       return;
     }
+    // console.log(3);
     if (!animation3) {
       setAnimation3((prev) => !prev);
       return;
     }
-    if (pIdx < myWords.length - 1) {
-      setPIdx((prev) => prev + 1);
-      setAnimation0(false);
-      setAnimation1(false);
-      setAnimation2(false);
-      setAnimation3(false);
-      setBgColor("bg-[#FFE5E5]");
-      setTextColor("text-[#333]");
-      setTextFont("font-phuDu");
+    // console.log(4);
+    if (!slideIn && pIdx == 0) {
+      setSlideIn(true);
+      setTimeout(() => {
+        setAnimation0(false);
+      }, 500);
+      setTimeout(() => {
+        setSlideIn(false);
+        setPIdx((prev) => prev + 1);
+        setAnimation0(true);
+        setAnimation1(false);
+        setAnimation2(false);
+        setAnimation3(false);
+        setBgColor("bg-[#FFE5E5]");
+        setTextColor("text-[#333]");
+        setTextFont("font-phuDu");
+      }, 550);
       return;
     }
+    // console.log(5);
+    // if (pIdx < myWords.length - 1) {
+    //   setSlideIn(false);
+    //   setPIdx((prev) => prev + 1);
+    //   setAnimation0(true);
+    //   setAnimation1(false);
+    //   setAnimation2(false);
+    //   setAnimation3(false);
+    //   setBgColor("bg-[#FFE5E5]");
+    //   setTextColor("text-[#333]");
+    //   setTextFont("font-phuDu");
+    //   return;
+    // }
+    // console.log(6);
+    setSlideOut(true);
+    navigate("/for-serene-impl/");
   };
 
   const genRightTop = (msg: string) => {
@@ -84,6 +113,7 @@ export default function MissAndLove() {
   };
 
   const genLeft = (msg: string) => {
+    // console.log("left: " + animation0);
     let dynamicClasses = animation0 ? "animate-flyLeft" : "opacity-0";
     return (
       <Typography
@@ -92,6 +122,39 @@ export default function MissAndLove() {
         {msg}
       </Typography>
     );
+  };
+
+  const genSlide = () => {
+    let dynamicClasses1 = "bg-[#FFE5E5] z-10 animate-scaleInTop";
+    let dynamicClasses2 = "bg-[#FFE5E5] z-10 animate-scaleInBottom";
+    if (slideOut) {
+      // console.log("slide out");
+      dynamicClasses1 = "z-10 bg-[#333] animate-scaleOutTopFromBottom";
+      dynamicClasses2 = "z-10 bg-[#333] animate-scaleOutBottomFromTop";
+    }
+    if (slideIn || slideOut) {
+      return (
+        <>
+          <div
+            className={`absolute  w-full h-[51%] rounded-t-lg ${dynamicClasses1}`}
+          ></div>
+          <div
+            className={`absolute w-full h-[50%] bottom-0 rounded-b-lg ${dynamicClasses2}`}
+          ></div>
+        </>
+      );
+    }
+    return <></>;
+    // return (
+    //   <>
+    //     <div
+    //       className={`absolute  w-full h-[51%] rounded-t-lg ${dynamicClasses1}`}
+    //     ></div>
+    //     <div
+    //       className={`absolute w-full h-[50%] bottom-0 rounded-b-lg ${dynamicClasses2}`}
+    //     ></div>
+    //   </>
+    // );
   };
 
   return (
@@ -103,22 +166,25 @@ export default function MissAndLove() {
         }}
         nextClick={handleNextClick}
       >
-        <div className="relative top-1/2 -translate-y-1/2 flex">
-          <div className="h-60 w-3/7">
-            <div className="h-2/5 flex items-center">
-              {genLeft(myWords[pIdx][0])}
+        <>
+          {genSlide()}
+          <div className="relative top-1/2 -translate-y-1/2 flex">
+            <div className="h-60 w-3/7">
+              <div className="h-2/5 flex items-center">
+                {genLeft(myWords[pIdx][0])}
+              </div>
+              <div className="h-1/5"></div>
+              <div className="h-2/5"></div>
             </div>
-            <div className="h-1/5"></div>
-            <div className="h-2/5"></div>
-          </div>
-          <div className="w-full">
-            <div className="h-2/5">{genRightTop(myWords[pIdx][1])}</div>
-            <div className="h-1/5 flex items-center">
-              {genRightMiddle(myWords[pIdx][2])}
+            <div className="w-full">
+              <div className="h-2/5">{genRightTop(myWords[pIdx][1])}</div>
+              <div className="h-1/5 flex items-center">
+                {genRightMiddle(myWords[pIdx][2])}
+              </div>
+              <div className="h-2/5">{genRightBottom(myWords[pIdx][3])}</div>
             </div>
-            <div className="h-2/5">{genRightBottom(myWords[pIdx][3])}</div>
           </div>
-        </div>
+        </>
       </Windows>
     </>
   );
