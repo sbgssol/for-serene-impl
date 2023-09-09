@@ -13,9 +13,13 @@ module.exports = withMT({
           "0%": { transform: "translateX(150px)", opacity: "0" },
           "100%": { opacity: "1" },
         },
-        flyUp: {
+        flyInUp: {
           "0%": { transform: "translateY(150px)", opacity: "0" },
           "100%": { opacity: "1" },
+        },
+        flyOutUp: {
+          "0%": { opacity: "1" },
+          "100%": { transform: "translateY(-150px)", opacity: "0" },
         },
         flyDown: {
           "0%": { transform: "translateY(-150px)", opacity: "0" },
@@ -338,7 +342,8 @@ module.exports = withMT({
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
         flyRight: "flyRight 500ms ease-out",
-        flyUp: "flyUp 500ms ease-out",
+        flyInUp: "flyInUp 500ms ease-out",
+        flyOutUp: "flyOutUp 500ms ease-out",
         flyDown: "flyDown 500ms ease-out",
         zoomOut: "zoomOut 500ms ease-out",
         aniBounceInRight: "aniBounceInRight 1.1s both",
@@ -392,6 +397,9 @@ module.exports = withMT({
         lalezar: ['"Lalezar"'],
         phuDu: ['"Phudu"'],
         sarabun: ['"Sarabun"'],
+        lilitaOne: ['"Lilita One"'],
+        righteous: ['"Righteous"'],
+        patuaOne: ['"Patua One"'],
       },
     },
   },

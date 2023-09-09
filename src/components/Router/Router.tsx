@@ -6,6 +6,7 @@ import Authorization from "../Page/Auth/Authorization";
 import { useState } from "react";
 import Words from "../Page/Normal/Words";
 import MissAndLove from "../Page/Normal/MissAndLove";
+import Loves from "../Page/Normal/Loves";
 
 export default function MyRouter() {
   const [valid, setValid] = useState<boolean>(false);
@@ -31,6 +32,10 @@ export default function MyRouter() {
       <Route
         path="/for-serene-impl/4"
         element={valid ? <MissAndLove /> : <NotFound />}
+      />
+      <Route
+        path="/for-serene-impl/5"
+        element={valid ? <Loves /> : <NotFound />}
       />
 
       <Route path="/for-serene-impl/*" element={<NotFound />} />

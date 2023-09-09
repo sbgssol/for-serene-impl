@@ -73,7 +73,7 @@ function App() {
     );
   };
   const genHead = (msg: string) => {
-    let classes = flyIn5 ? "animate-flyUp" : "opacity-0";
+    let classes = flyIn5 ? "animate-flyInUp" : "opacity-0";
     return (
       <>
         <Typography

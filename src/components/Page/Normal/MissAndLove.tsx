@@ -77,8 +77,8 @@ export default function MissAndLove() {
     // console.log(6);
     setSlideOut(true);
     setTimeout(() => {
-      navigate("/for-serene-impl/");
-    }, 600);
+      navigate("/for-serene-impl/5");
+    }, 500);
   };
 
   const genRightTop = (msg: string) => {
@@ -93,7 +93,7 @@ export default function MissAndLove() {
   };
 
   const genRightMiddle = (msg: string) => {
-    let dynamicClasses = animation2 ? "animate-flyUp" : "opacity-0";
+    let dynamicClasses = animation2 ? "animate-flyInUp" : "opacity-0";
     return (
       <Typography
         className={`${dynamicClasses} ${textColor} relative pl-3 font-normal uppercase text-xl`}
@@ -104,7 +104,7 @@ export default function MissAndLove() {
   };
 
   const genRightBottom = (msg: string) => {
-    let dynamicClasses = animation3 ? "animate-flyUp" : "opacity-0";
+    let dynamicClasses = animation3 ? "animate-flyInUp" : "opacity-0";
     return (
       <Typography
         className={`${dynamicClasses} ${textColor} ${textFont} tracking-wider relative pl-1 right-0 font-black uppercase text-8xl `}
