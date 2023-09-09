@@ -76,7 +76,9 @@ export default function MissAndLove() {
     // }
     // console.log(6);
     setSlideOut(true);
-    navigate("/for-serene-impl/");
+    setTimeout(() => {
+      navigate("/for-serene-impl/");
+    }, 600);
   };
 
   const genRightTop = (msg: string) => {
