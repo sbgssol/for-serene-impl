@@ -338,6 +338,40 @@ module.exports = withMT({
             opacity: "1",
           },
         },
+        puffInCenter: {
+          "0%": {
+            transform: "scale(1.2)",
+            filter: "blur(4px)",
+            opacity: "0",
+          },
+          // "25%": {
+          //   transform: "scale(0.8)",
+          //   filter: "blur(0px)",
+          //   opacity: "0.25",
+          // },
+          // "75%": {
+          //   transform: "scale(1.4)",
+          //   filter: "blur(0px)",
+          //   opacity: "0.75",
+          // },
+          "100%": {
+            transform: "scale(1)",
+            filter: "blur(0px)",
+            opacity: "1",
+          },
+        },
+        puffOutCenter: {
+          "0%": {
+            transform: "scale(1)",
+            filter: "blur(0px)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "scale(1.2)",
+            filter: "blur(4px)",
+            opacity: "0",
+          },
+        },
       },
       animation: {
         flyLeft: "flyLeft 500ms ease-out",
@@ -383,6 +417,10 @@ module.exports = withMT({
           "scaleInTop 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
         scaleInBottom:
           "scaleInBottom 0.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both",
+        puffInCenter:
+          "puffInCenter 0.4s cubic-bezier(0.470, 0.000, 0.745, 0.715) both",
+        puffOutCenter:
+          "puffOutCenter 0.4s cubic-bezier(0.470, 0.000, 0.745, 0.715) both",
       },
 
       fontFamily: {

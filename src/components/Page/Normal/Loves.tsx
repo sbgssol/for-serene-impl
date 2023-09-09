@@ -1,7 +1,7 @@
 import { Typography, TypographyProps } from "@material-tailwind/react";
 import Windows from "../../Windows";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Loves() {
   const navigate = useNavigate();
@@ -10,13 +10,31 @@ export default function Loves() {
   const [bottomInAnimation, setbottomInAnimation] = useState(false);
   const [bottomOutAnimation, setbottomOutAnimation] = useState(false);
   const [wordIdx, setWordIdx] = useState(0);
+  const [textColor, settextColor] = useState("text-pink-200");
+  const [windowColor, setwindowColor] = useState("bg-[#333]");
+  const [textFont, setTextFont] = useState("font-righteous");
+  const [fontSize, setfontSize] = useState("text-8xl");
+  const [inAnimation, setinAnimation] = useState("animate-flyInUp");
+  const [outAnimation, setOutAnimation] = useState("animate-flyOutUp");
+
+  useEffect(() => {
+    console.log("word idx changed: " + wordIdx);
+    if (wordIdx > 2) {
+      settextColor("text-pink-600");
+      setwindowColor("bg-[#FFE5E5]");
+      setTextFont("font-lilitaOne");
+      setfontSize("text-9xl");
+      setinAnimation("animate-puffInCenter");
+      setOutAnimation("animate-puffOutCenter");
+    }
+  }, [wordIdx]);
 
   let words = [
-    { word: "Condition", color: "blue" },
-    { word: "Limitation", color: "indigo" },
-    { word: "Reservation", color: "teal" },
-    { word: "Devotion", color: "deep-orange" },
-    { word: "Affection", color: "red" },
+    { word: "Condition", color: "gray" },
+    { word: "Limitation", color: "gray" },
+    { word: "Reservation", color: "gray" },
+    { word: "Devotion", color: "pink" },
+    { word: "Affection", color: "pink" },
     { word: "Emotion", color: "pink" },
   ];
 
@@ -65,7 +83,7 @@ export default function Loves() {
     );
   };
   const secondTop = () => {
-    return <>i ❤️ u</>;
+    return <>i ❤ u</>;
   };
   const genTop = () => {
     let dynamicClasses = topAnimation
@@ -74,7 +92,7 @@ export default function Loves() {
     return (
       <>
         <Typography
-          className={`text-7xl uppercase font-semibold font-patuaOne ${dynamicClasses}`}
+          className={`text-7xl uppercase font-semibold font-patuaOne ${textColor} ${dynamicClasses}`}
         >
           {wordIdx < 3 ? firstTop() : secondTop()}
         </Typography>
@@ -86,7 +104,7 @@ export default function Loves() {
     let dynamicClasses = middleAnimation ? "animate-flyInUp" : "opacity-0";
     return (
       <>
-        <Typography className={`text-3xl ${dynamicClasses}`}>
+        <Typography className={`text-3xl ${textColor} ${dynamicClasses}`}>
           {wordIdx < 3 ? "without" : "with all my"}
         </Typography>
       </>
@@ -94,13 +112,13 @@ export default function Loves() {
   };
 
   const genBottom = () => {
-    let dynamicClasses = bottomInAnimation ? "animate-flyInUp" : "opacity-0";
-    dynamicClasses = bottomOutAnimation ? "animate-flyOutUp" : dynamicClasses;
+    let dynamicClasses = bottomInAnimation ? inAnimation : "opacity-0";
+    dynamicClasses = bottomOutAnimation ? outAnimation : dynamicClasses;
     console.log("bottom: " + dynamicClasses);
     return (
       <>
         <Typography
-          className={`text-8xl font-semibold font-righteous drop-shadow-md ${dynamicClasses}`}
+          className={`${fontSize} font-semibold ${textFont} drop-shadow-md ${dynamicClasses}`}
           // color="red"
           color={words[wordIdx].color as TypographyProps["color"]}
           textGradient
@@ -110,6 +128,7 @@ export default function Loves() {
       </>
     );
   };
+
   return (
     <>
       <Windows
@@ -117,6 +136,8 @@ export default function Loves() {
           navigate(-1);
         }}
         nextClick={handleNextClick}
+        bg={windowColor}
+        className="transition-colors duration-150 ease-out"
       >
         <>
           <div className="relative top-1/2 -translate-y-1/2 h-1/2 flex flex-col justify-center">
