@@ -1,4 +1,4 @@
-import { Typography, TypographyProps } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import Windows from "../../Windows";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ export default function Loves() {
   const [wordIdx, setWordIdx] = useState(0);
   const [textColor, settextColor] = useState("text-pink-200");
   const [windowColor, setwindowColor] = useState("bg-[#333]");
-  const [textFont, setTextFont] = useState("font-righteous");
+  const [textFont, setTextFont] = useState("font-nunito");
   const [fontSize, setfontSize] = useState("text-8xl");
   const [inAnimation, setinAnimation] = useState("animate-flyInUp");
   const [outAnimation, setOutAnimation] = useState("animate-flyOutUp");
@@ -39,12 +39,12 @@ export default function Loves() {
   }, [wordIdx]);
 
   let words = [
-    { word: "Condition", color: "gray" },
-    { word: "Limitation", color: "gray" },
-    { word: "Reservation", color: "gray" },
-    { word: "Devotion", color: "pink" },
-    { word: "Affection", color: "pink" },
-    { word: "Emotion", color: "pink" },
+    { word: "Condition", color: "text-[#FF758F]" },
+    { word: "Limitation", color: "text-[#FF758F]" },
+    { word: "Reservation", color: "text-[#FF758F]" },
+    { word: "beliefs", color: "text-pink-600" },
+    { word: "life", color: "text-pink-600" },
+    { word: "heart", color: "text-pink-600" },
   ];
 
   const handleNextClick = () => {
@@ -88,6 +88,7 @@ export default function Loves() {
     return (
       <>
         i <span className="text-pink-600">love</span> you
+        {/* hello */}
       </>
     );
   };
@@ -127,9 +128,7 @@ export default function Loves() {
     return (
       <>
         <Typography
-          className={`${fontSize} font-semibold ${textFont} drop-shadow-md ${dynamicClasses}`}
-          // color="red"
-          color={words[wordIdx].color as TypographyProps["color"]}
+          className={`${fontSize} pt-2 uppercase font-black ${textFont} ${dynamicClasses} ${words[wordIdx].color} `}
           textGradient
         >
           {words[wordIdx].word}

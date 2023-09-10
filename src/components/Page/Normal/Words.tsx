@@ -56,7 +56,7 @@ export default function Words() {
           navigate(-1);
         }}
         nextClick={() => {
-          navigate("/for-serene-impl/3");
+          navigate("/for-serene-impl/4");
         }}
       >
         <Typography className="font-marmelad text-pink-200">

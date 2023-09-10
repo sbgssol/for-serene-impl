@@ -41,11 +41,11 @@ export default function Authorization({
     <div className="w-screen flex justify-center mt-6">
       <div className="w-[32rem] ">
         <Typography
-          variant="lead"
           color="pink"
-          className="flex items-center gap-1 font-normal mb-2 font-signika"
+          className="flex items-center gap-1 font-normal mb-2 font-signika text-xl"
         >
-          Do you remember the place where I gave you our first kiss on your lips?
+          Do you remember the place where I gave you our first kiss on your
+          lips?
         </Typography>
         <Input
           crossOrigin={undefined}

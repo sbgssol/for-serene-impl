@@ -461,6 +461,7 @@ module.exports = withMT({
         lilitaOne: ['"Lilita One"'],
         righteous: ['"Righteous"'],
         patuaOne: ['"Patua One"'],
+        nunito: ['"Nunito"'],
       },
 
       colors: {

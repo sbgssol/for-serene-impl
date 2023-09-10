@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import App from "../../App";
-import Normal from "../Page/Normal/NormalPage";
 import NotFound from "../Page/Error/NotFound";
 import Authorization from "../Page/Auth/Authorization";
 import { useState } from "react";
@@ -25,10 +24,10 @@ export default function MyRouter() {
         path="/for-serene-impl/2"
         element={valid ? <Words /> : <NotFound />}
       />
-      <Route
+      {/* <Route
         path="/for-serene-impl/3"
         element={valid ? <Normal /> : <NotFound />}
-      />
+      /> */}
       <Route
         path="/for-serene-impl/4"
         element={valid ? <MissAndLove /> : <NotFound />}
