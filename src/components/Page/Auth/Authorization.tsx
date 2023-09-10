@@ -1,6 +1,7 @@
 import { Button, Input, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useGlobal } from "../../../context/useGlobal";
 // import { useGlobal } from "../../../context/useGlobal";
 interface AuthorizationProps {
   setValidForRouter: (valid: boolean) => void;
@@ -24,7 +25,7 @@ export default function Authorization({
   //   setValidForRouter(valid);
   //   return valid;
   // };
-
+  const global = useGlobal();
   const handleContinueClicked = () => {
     if (!valid) return;
     navigate("/for-serene-impl/1");
@@ -32,12 +33,15 @@ export default function Authorization({
 
   useEffect(() => {
     console.log("useEffect");
+    const spaceRemoved = input.replace(/ /g, "");
     setValid(
-      input.toLowerCase() === "cck" || input.toLowerCase() === "circle k"
+      spaceRemoved.toLowerCase() === global.hexToUnicode("0x63 0x63 0x6b") ||
+        spaceRemoved.toLowerCase() ===
+          global.hexToUnicode("0x63 0x69 0x72 0x63 0x6c 0x65 0x6b")
     );
     setValidForRouter(valid);
     return () => {};
-  }, [input, setValidForRouter, valid]);
+  }, [input, setValidForRouter, valid, global]);
 
   // const global = useGlobal();
 
