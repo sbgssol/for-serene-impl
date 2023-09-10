@@ -2,7 +2,7 @@ import { Button, Input, Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useGlobal } from "../../../context/useGlobal";
-// import { useGlobal } from "../../../context/useGlobal";
+
 interface AuthorizationProps {
   setValidForRouter: (valid: boolean) => void;
 }
@@ -18,13 +18,6 @@ export default function Authorization({
     setInput(event.target.value);
   };
 
-  // const checkValid = () => {
-  //   setValid(
-  //     input.toLowerCase() === "cck" || input.toLowerCase() === "circle k"
-  //   );
-  //   setValidForRouter(valid);
-  //   return valid;
-  // };
   const global = useGlobal();
   const handleContinueClicked = () => {
     if (!valid) return;
@@ -42,8 +35,6 @@ export default function Authorization({
     setValidForRouter(valid);
     return () => {};
   }, [input, setValidForRouter, valid, global]);
-
-  // const global = useGlobal();
 
   return (
     <div className="w-screen flex justify-center mt-6">

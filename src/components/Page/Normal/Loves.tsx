@@ -2,6 +2,7 @@ import { Typography } from "@material-tailwind/react";
 import Windows from "../../Windows";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import BorderedShadownedText from "../../BorderedShadowedText";
 
 export default function Loves() {
   const navigate = useNavigate();
@@ -12,12 +13,13 @@ export default function Loves() {
   const [wordIdx, setWordIdx] = useState(0);
   const [textColor, settextColor] = useState("text-pink-200");
   const [windowColor, setwindowColor] = useState("bg-[#333]");
-  const [textFont, setTextFont] = useState("font-nunito");
+  const [textFont, setTextFont] = useState("font-paytoneOne");
   const [fontSize, setfontSize] = useState("text-8xl");
   const [inAnimation, setinAnimation] = useState("animate-flyInUp");
   const [outAnimation, setOutAnimation] = useState("animate-flyOutUp");
   const [stateChanged, setstateChanged] = useState(false);
   const [needCover, setneedCover] = useState(false);
+  const [strokeColor, setstrokeColor] = useState("#FF0A54");
 
   useEffect(() => {
     console.log("word idx changed: " + wordIdx);
@@ -34,17 +36,18 @@ export default function Loves() {
         setbottomInAnimation(false);
         setbottomOutAnimation(false);
         setstateChanged((prev) => !prev);
+        setstrokeColor("#333");
       }
     }
   }, [wordIdx, stateChanged]);
 
   const words = [
-    { word: "Condition", color: "text-[#FF758F]" },
-    { word: "Limitation", color: "text-[#FF758F]" },
-    { word: "Reservation", color: "text-[#FF758F]" },
-    { word: "beliefs", color: "text-pink-600" },
-    { word: "life", color: "text-pink-600" },
-    { word: "heart", color: "text-pink-600" },
+    { word: "Condition", color: "#FAE0E4" },
+    { word: "Limitation", color: "#FAE0E4" },
+    { word: "Reservation", color: "#FAE0E4" },
+    { word: "beliefs", color: "#FF4D6D" },
+    { word: "life", color: "#FF4D6D" },
+    { word: "heart", color: "#FF4D6D" },
   ];
 
   const handleNextClick = () => {
@@ -93,7 +96,19 @@ export default function Loves() {
     );
   };
   const secondTop = () => {
-    return <>i ❤ u</>;
+    // return <>i ❤ u</>;
+    return (
+      <BorderedShadownedText
+        className={`pt-2 uppercase ${textFont} tracking-wide`}
+        shadowBlur="0px"
+        shadowColor="#FFFFFF"
+        shadowWidth="0px"
+        str="i ❤ u"
+        strokeColor={strokeColor}
+        strokeWidth="1px"
+        textFill={words[wordIdx].color}
+      />
+    );
   };
   const genTop = () => {
     const dynamicClasses = topAnimation
@@ -127,12 +142,22 @@ export default function Loves() {
     console.log("bottom: " + dynamicClasses);
     return (
       <>
-        <Typography
+        <BorderedShadownedText
+          className={`pt-2 uppercase ${textFont} tracking-wide ${dynamicClasses} ${fontSize}`}
+          shadowBlur="0px"
+          shadowColor="#FF99AC"
+          shadowWidth="6px"
+          str={words[wordIdx].word}
+          strokeColor={strokeColor}
+          strokeWidth="2px"
+          textFill={words[wordIdx].color}
+        />
+        {/* <Typography
           className={`${fontSize} pt-2 uppercase font-black ${textFont} ${dynamicClasses} ${words[wordIdx].color} `}
           textGradient
         >
           {words[wordIdx].word}
-        </Typography>
+        </Typography> */}
       </>
     );
   };
