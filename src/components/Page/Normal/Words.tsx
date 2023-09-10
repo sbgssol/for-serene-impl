@@ -8,7 +8,7 @@ export default function Words() {
   const navigate = useNavigate();
 
   const [content, setContent] = useState("");
-  let str = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero, hic aspernatur, architecto nihil possimus laborum repellendus vitae cupiditate ut iusto voluptatum dolorum maiores, molestias quae facere labore laboriosam beatae.
+  const str = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero, hic aspernatur, architecto nihil possimus laborum repellendus vitae cupiditate ut iusto voluptatum dolorum maiores, molestias quae facere labore laboriosam beatae.
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non beatae aperiam suscipit sed debitis libero sit accusantium molestiae nostrum enim. Totam quibusdam reprehenderit a dolorem dicta beatae consectetur ab provident?
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error aliquid quas commodi doloremque temporibus voluptates, magni unde fugiat minima dicta eligendi ratione exercitationem odit et, aliquam sed, distinctio ducimus. Ab?
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias atque cupiditate dolor? Adipisci fuga quas illum ex vero ipsum, deleniti impedit autem corrupti vitae tempore, iusto in quis. Ea, suscipit!`;
@@ -47,7 +47,7 @@ export default function Words() {
       clearInterval(showCharsInterval);
       clearInterval(removeCharsInterval);
     };
-  }, [idx, showing]);
+  }, [idx, showing, str]);
 
   return (
     <>

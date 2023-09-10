@@ -6,7 +6,7 @@ export default function TypingText(props: { msg: string; style: string }) {
     const [idx, setIdx] = useState(0);
     const [sign, setSign] = useState("|");
     useEffect(() => {
-        let id = setInterval(() => {
+        const id = setInterval(() => {
             if (idx < props.msg.length) {
                 setContent((prevContent) => prevContent + props.msg[idx]);
                 setIdx((prev) => prev + 1);
@@ -20,7 +20,7 @@ export default function TypingText(props: { msg: string; style: string }) {
         return () => {
             clearInterval(id);            
         };
-    }, [content]);
+    }, [content, idx, props.msg]);
 
     return <Typography className={props.style}>{content}{sign}</Typography>;
 }

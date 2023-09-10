@@ -19,10 +19,10 @@ export default function Album() {
 
   const handleOpen = () => setOpen((cur) => !cur);
 
-  let arrowColor = "#F2789F";
-  let arrowWidth = 3;
+  const arrowColor = "#F2789F";
+  const arrowWidth = 3;
 
-  let imagesAndDescriptions = [
+  const imagesAndDescriptions = [
     { path: Img1, desc: "Image 1" },
     { path: Img2, desc: "Image 2" },
     { path: Img3, desc: "Image 3" },

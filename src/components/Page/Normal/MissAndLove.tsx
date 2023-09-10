@@ -17,7 +17,7 @@ export default function MissAndLove() {
 
   const navigate = useNavigate();
 
-  let myWords = [
+  const myWords = [
     ["in every dream", "i ache", "for your", "presence"],
     ["with every breath", "my love", "for you", "deepens"],
   ];
@@ -82,7 +82,7 @@ export default function MissAndLove() {
   };
 
   const genRightTop = (msg: string) => {
-    let dynamicClasses = animation1 ? "animate-slideInRight" : "opacity-0";
+    const dynamicClasses = animation1 ? "animate-slideInRight" : "opacity-0";
     return (
       <Typography
         className={`${dynamicClasses} ${textColor} ${textFont} tracking-wider relative pl-1 font-black uppercase text-8xl`}
@@ -93,7 +93,7 @@ export default function MissAndLove() {
   };
 
   const genRightMiddle = (msg: string) => {
-    let dynamicClasses = animation2 ? "animate-flyInUp" : "opacity-0";
+    const dynamicClasses = animation2 ? "animate-flyInUp" : "opacity-0";
     return (
       <Typography
         className={`${dynamicClasses} ${textColor} relative pl-3 font-normal uppercase text-xl`}
@@ -104,7 +104,7 @@ export default function MissAndLove() {
   };
 
   const genRightBottom = (msg: string) => {
-    let dynamicClasses = animation3 ? "animate-flyInUp" : "opacity-0";
+    const dynamicClasses = animation3 ? "animate-flyInUp" : "opacity-0";
     return (
       <Typography
         className={`${dynamicClasses} ${textColor} ${textFont} tracking-wider relative pl-1 right-0 font-black uppercase text-8xl `}
@@ -116,7 +116,7 @@ export default function MissAndLove() {
 
   const genLeft = (msg: string) => {
     // console.log("left: " + animation0);
-    let dynamicClasses = animation0 ? "animate-flyLeft" : "opacity-0";
+    const dynamicClasses = animation0 ? "animate-flyLeft" : "opacity-0";
     return (
       <Typography
         className={`${textColor} ${dynamicClasses} relative top-1/2 -translate-y-1/2 text-right pr-1 right-0 font-light uppercase text-4xl `}

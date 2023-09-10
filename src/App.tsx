@@ -48,7 +48,7 @@ function App() {
   };
 
   const genThanks = (msg: string) => {
-    let dynamicClasses = flyIn1 ? "animate-flyLeft" : "opacity-0";
+    const dynamicClasses = flyIn1 ? "animate-flyLeft" : "opacity-0";
     return (
       <Typography
         variant="h2"
@@ -60,7 +60,7 @@ function App() {
   };
 
   const genPrincess = (msg: string) => {
-    let classes = flyIn2 ? "animate-flyRight" : "opacity-0";
+    const classes = flyIn2 ? "animate-flyRight" : "opacity-0";
     return (
       <>
         <Typography
@@ -73,7 +73,7 @@ function App() {
     );
   };
   const genHere = (msg: string) => {
-    let classes = flyIn4 ? "animate-flyInUp" : "opacity-0";
+    const classes = flyIn4 ? "animate-flyInUp" : "opacity-0";
     return (
       <>
         <Typography
@@ -108,7 +108,7 @@ function App() {
   };
 
   const genMine = (msg: string) => {
-    let dynamicClasses = flyIn3 ? "animate-flyRight" : "opacity-0";
+    const dynamicClasses = flyIn3 ? "animate-flyRight" : "opacity-0";
     return (
       <Typography
         variant="h2"
@@ -120,7 +120,7 @@ function App() {
   };
 
   const genBecause = (msg: string) => {
-    let dynamicClasses = flyIn3 ? "animate-flyRight" : "opacity-0";
+    const dynamicClasses = flyIn3 ? "animate-flyRight" : "opacity-0";
     return (
       <Typography
         variant="h3"

@@ -26,7 +26,7 @@ export default function Normal() {
   };
 
   const genRightTop = (msg: string) => {
-    let dynamicClasses = animation3 ? "animate-ScaleInTopRight" : "opacity-0";
+    const dynamicClasses = animation3 ? "animate-ScaleInTopRight" : "opacity-0";
     return (
       <Typography
         className={`text-6xl font-marmelad font-medium ${dynamicClasses}`}
@@ -37,7 +37,7 @@ export default function Normal() {
   };
 
   const genRightCenter = (msg: string) => {
-    let dynamicClasses = animation4 ? "animate-ScaleInRight" : "opacity-0";
+    const dynamicClasses = animation4 ? "animate-ScaleInRight" : "opacity-0";
     return (
       <Typography
         className={`text-6xl font-marmelad font-semibold ${dynamicClasses}`}
@@ -48,7 +48,7 @@ export default function Normal() {
   };
 
   const genRightBottom = (msg: string) => {
-    let dynamicClasses = animation5
+    const dynamicClasses = animation5
       ? "animate-ScaleInBottomRight"
       : "opacity-0";
     return (
@@ -61,7 +61,7 @@ export default function Normal() {
   };
 
   const genAllRight = () => {
-    let dynamicClasses = animation2
+    const dynamicClasses = animation2
       ? "animate-slideInBlurredRight"
       : "opacity-0";
     return (

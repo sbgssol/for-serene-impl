@@ -36,9 +36,9 @@ export default function Loves() {
         setstateChanged((prev) => !prev);
       }
     }
-  }, [wordIdx]);
+  }, [wordIdx, stateChanged]);
 
-  let words = [
+  const words = [
     { word: "Condition", color: "text-[#FF758F]" },
     { word: "Limitation", color: "text-[#FF758F]" },
     { word: "Reservation", color: "text-[#FF758F]" },
@@ -96,7 +96,7 @@ export default function Loves() {
     return <>i ❤ u</>;
   };
   const genTop = () => {
-    let dynamicClasses = topAnimation
+    const dynamicClasses = topAnimation
       ? "animate-TrackingInExpand"
       : "opacity-0";
     return (
@@ -111,7 +111,7 @@ export default function Loves() {
   };
 
   const genMiddle = () => {
-    let dynamicClasses = middleAnimation ? "animate-flyInUp" : "opacity-0";
+    const dynamicClasses = middleAnimation ? "animate-flyInUp" : "opacity-0";
     return (
       <>
         <Typography className={`text-3xl ${textColor} ${dynamicClasses}`}>

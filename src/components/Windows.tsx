@@ -11,7 +11,7 @@ export default function Windows(props: {
   bg?: string;
   className?: string;
 }) {
-  let dynamicClasses =
+  const dynamicClasses =
     "p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-125 duration-200 active:scale-75";
   return (
     <>

@@ -17,23 +17,27 @@ export default function Authorization({
     setInput(event.target.value);
   };
 
-  const checkValid = () => {
-    setValid(
-      input.toLowerCase() === "cck" || input.toLowerCase() === "circle k"
-    );
-    setValidForRouter(valid);
-    return valid;
-  };
+  // const checkValid = () => {
+  //   setValid(
+  //     input.toLowerCase() === "cck" || input.toLowerCase() === "circle k"
+  //   );
+  //   setValidForRouter(valid);
+  //   return valid;
+  // };
 
   const handleContinueClicked = () => {
-    if (!checkValid()) return;
+    if (!valid) return;
     navigate("/for-serene-impl/1");
   };
 
   useEffect(() => {
-    checkValid();
+    console.log("useEffect");
+    setValid(
+      input.toLowerCase() === "cck" || input.toLowerCase() === "circle k"
+    );
+    setValidForRouter(valid);
     return () => {};
-  }, [input]);
+  }, [input, setValidForRouter, valid]);
 
   // const global = useGlobal();
 
