@@ -1,4 +1,4 @@
-export default function BorderedShadownedText(props: {
+export default function BorderedOnlyText(props: {
   textFill: string;
   strokeWidth: string;
   strokeColor: string;
@@ -8,18 +8,35 @@ export default function BorderedShadownedText(props: {
   className: string;
   str: string;
 }) {
-  const shadowW =
-    "-" + props.shadowWidth + " " + props.shadowWidth + " " + props.shadowBlur;
+  let border = "";
+  const update = function() {
+    const strokeSize = Number(props.strokeWidth.replace("px", ""));
+    // console.log("strokeSize: " + strokeSize);
+    const preview = "";
+    for (let angle=0; angle<2*Math.PI; angle+=1/strokeSize) {
+      appendShadow(preview, Math.cos(angle) * strokeSize, Math.sin(angle) * strokeSize, props.strokeColor);
+    }
+  }
+  
+  const appendShadow = function(item: string, x: number, y: number, col: string) {
+    let textShadow = '';
+    textShadow = textShadow + x + 'px ' + y + 'px ' + col;
+    border += (textShadow + ", ");
+    item += textShadow;
+    // console.log('text-shadow: ' + border);
+  }
 
-  console.log(shadowW);
+  update();
+  const shadowW =
+  "-" + props.shadowWidth + " " + props.shadowWidth + " " + props.shadowBlur;
+  const finalShadow = border + shadowW + " " + props.shadowColor;
+  // console.log("Final shadow: " + finalShadow)
   return (
     <span
       className={`${props.className} font-black`}
       style={{
-        WebkitTextStrokeWidth: props.strokeWidth,
-        WebkitTextFillColor: props.textFill,
-        WebkitTextStrokeColor: props.strokeColor,
-        textShadow: shadowW + " " + props.shadowColor,
+        textShadow: finalShadow,
+        color: props.textFill
       }}
     >
       {props.str}

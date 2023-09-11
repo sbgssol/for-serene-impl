@@ -13,7 +13,7 @@ export default function Loves() {
   const [wordIdx, setWordIdx] = useState(0);
   const [textColor, settextColor] = useState("text-pink-200");
   const [windowColor, setwindowColor] = useState("bg-[#333]");
-  const [textFont, setTextFont] = useState("font-paytoneOne");
+  const [textFont, setTextFont] = useState("font-nunito");
   const [fontSize, setfontSize] = useState("text-8xl");
   const [inAnimation, setinAnimation] = useState("animate-flyInUp");
   const [outAnimation, setOutAnimation] = useState("animate-flyOutUp");
@@ -80,11 +80,6 @@ export default function Loves() {
       return;
     }
     console.log("Click: 5");
-    // if (bottomOutAnimation) {
-    //   setbottomInAnimation(true);
-    //   setbottomOutAnimation(false);
-    //   return;
-    // }
   };
 
   const firstTop = () => {
@@ -143,21 +138,15 @@ export default function Loves() {
     return (
       <>
         <BorderedShadownedText
-          className={`pt-2 uppercase ${textFont} tracking-wide ${dynamicClasses} ${fontSize}`}
+          className={`pt-2 uppercase ${textFont} tracking-wider ${dynamicClasses} ${fontSize}`}
           shadowBlur="0px"
           shadowColor="#FF99AC"
-          shadowWidth="6px"
+          shadowWidth="10px"
           str={words[wordIdx].word}
           strokeColor={strokeColor}
           strokeWidth="2px"
           textFill={words[wordIdx].color}
         />
-        {/* <Typography
-          className={`${fontSize} pt-2 uppercase font-black ${textFont} ${dynamicClasses} ${words[wordIdx].color} `}
-          textGradient
-        >
-          {words[wordIdx].word}
-        </Typography> */}
       </>
     );
   };
