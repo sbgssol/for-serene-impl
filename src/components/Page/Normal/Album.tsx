@@ -8,11 +8,12 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useState } from "react";
-import Img1 from "../../../assets/1.jpg";
-import Img2 from "../../../assets/2.jpg";
-import Img3 from "../../../assets/3.jpg";
-import Img4 from "../../../assets/4.jpg";
-import Img5 from "../../../assets/5.jpg";
+import Img1 from "../../../assets/01.png";
+import Img2 from "../../../assets/02.png";
+import Img3 from "../../../assets/03.png";
+import Img4 from "../../../assets/04.png";
+import Img5 from "../../../assets/05.png";
+import Img6 from "../../../assets/06.png";
 
 export default function Album() {
   const [open, setOpen] = useState(false);
@@ -23,11 +24,24 @@ export default function Album() {
   const arrowWidth = 3;
 
   const imagesAndDescriptions = [
-    { path: Img1, desc: "Image 1" },
-    { path: Img2, desc: "Image 2" },
-    { path: Img3, desc: "Image 3" },
-    { path: Img4, desc: "Image 4" },
-    { path: Img5, desc: "Image 5" },
+    {
+      path: Img1,
+      desc: "Đó là một khoảng thời gian vô cùng kinh khủng với anh. Chắc hẳn chỉ cần nhìn da anh thôi thì em cũng biết anh đã khủng hoảng thế nào.",
+    },
+    { path: Img2, desc: "Đây nữa, thật sự là ác mộng với anh." },
+    { path: Img3, desc: "Nhưng rồi có vẻ mọi chuyện cũng dần dần dịu lại" },
+    {
+      path: Img4,
+      desc: "Em biết không, lúc đấy tâm lý anh rất bất ổn...anh rất vất vả trong lúc đấy...",
+    },
+    {
+      path: Img5,
+      desc: "Công việc của anh nữa, anh phải làm liên tục, và thường xuyên trễ như thế này",
+    },
+    {
+      path: Img6,
+      desc: "Và như thế này nữa. Anh chỉ muốn cho em biết rằng vừa qua là một khoảng thời gian vô cùng khó khăn với anh",
+    },
   ];
 
   const [index, setIndex] = useState(0);
@@ -136,10 +150,10 @@ export default function Album() {
             <img src={Img5} className="mx-auto h-[500px] object-scale-down rounded-md" /> */}
           </Carousel>
         </DialogBody>
-        <DialogFooter className="justify-center">
+        <DialogFooter className="justify-center h-20 py-0 pb-2 ">
           <Typography
             variant="paragraph"
-            className="text-pink-100 font-marmelad"
+            className="text-pink-100 font-marmelad text-center"
           >
             {imagesAndDescriptions[index].desc}
           </Typography>
