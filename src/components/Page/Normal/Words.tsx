@@ -1,53 +1,23 @@
-import { Typography } from "@material-tailwind/react";
+// import { Typography } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Album from "./Album";
+// import { useEffect, useState } from "react";
+// import Album from "./Album";
 import Windows from "../../Windows";
+import TypingText from "../../Texts/Typing";
+import Album from "./Album";
 
 export default function Words() {
   const navigate = useNavigate();
 
-  const [content, setContent] = useState("");
-  const str = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus vero, hic aspernatur, architecto nihil possimus laborum repellendus vitae cupiditate ut iusto voluptatum dolorum maiores, molestias quae facere labore laboriosam beatae.
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non beatae aperiam suscipit sed debitis libero sit accusantium molestiae nostrum enim. Totam quibusdam reprehenderit a dolorem dicta beatae consectetur ab provident?
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error aliquid quas commodi doloremque temporibus voluptates, magni unde fugiat minima dicta eligendi ratione exercitationem odit et, aliquam sed, distinctio ducimus. Ab?
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias atque cupiditate dolor? Adipisci fuga quas illum ex vero ipsum, deleniti impedit autem corrupti vitae tempore, iusto in quis. Ea, suscipit!`;
-
-  const [idx, setIdx] = useState(0);
-  const [showing, setShowing] = useState(true);
-
-  useEffect(() => {
-    let showCharsInterval: number;
-    let removeCharsInterval: number;
-
-    if (showing) {
-      showCharsInterval = setInterval(() => {
-        if (idx < str.length) {
-          setContent((prev) => prev + str[idx]);
-          setIdx((prevIdx) => prevIdx + 1);
-        } else {
-          setShowing(false);
-          clearInterval(showCharsInterval);
-        }
-      }, 10);
-    }
-
-    if (!showing && idx > 0) {
-      removeCharsInterval = setInterval(() => {
-        if (idx > 0) {
-          setContent((prev) => prev.slice(0, -1));
-          setIdx((prevIdx) => prevIdx - 1);
-        } else {
-          clearInterval(removeCharsInterval);
-        }
-      }, 5);
-    }
-
-    return () => {
-      clearInterval(showCharsInterval);
-      clearInterval(removeCharsInterval);
-    };
-  }, [idx, showing, str]);
+  const words = [
+    "Esse saepe architecto dolorem eum sed, reprehenderit explicabo at dolor possimus illum ratione itaque inventore, natus ab amet iure. Beatae, ad sunt!",
+    "Maxime nisi cupiditate saepe mollitia error quibusdam enim aut temporibus ullam neque laudantium, maiores tempora deleniti pariatur animi porro impedit omnis distinctio!",
+    "Iste tenetur consequuntur et expedita dicta blanditiis corporis quia voluptas beatae, aliquid mollitia voluptatum atque neque natus ad dignissimos quod nam eius.",
+    "Perspiciatis et minus pariatur consectetur ducimus? Accusamus ad corrupti commodi suscipit quas pariatur quaerat sed itaque cum fugit! Similique cupiditate magnam dolorum! ",
+    "Nostrum aliquid delectus odit maxime suscipit. Doloribus, veniam recusandae accusamus iste explicabo vitae adipisci voluptatem quidem, sint nihil doloremque distinctio, nulla architecto? ",
+    "Labore, adipisci? Nulla voluptatum quis inventore laboriosam, architecto delectus qui reiciendis esse beatae aliquid tenetur culpa cum dignissimos cupiditate sint, maxime explicabo. ",
+    "Aperiam est qui architecto ducimus laudantium saepe officiis, placeat veritatis fugiat eligendi iusto, vel illo cupiditate sit! Quibusdam quod eligendi id ab? ",
+  ];
 
   return (
     <>
@@ -59,11 +29,17 @@ export default function Words() {
           navigate("/for-serene-impl/4");
         }}
       >
-        <Typography className="font-marmelad text-pink-200">
-          {content}
+        <>
+          {words.map((str, index) => (
+            <TypingText
+              key={index}
+              msg={str}
+              className="text-pink-200 font-signika text-lg p-2 text-justify"
+              speedInMs={15}
+            />
+          ))}
           <Album />
-          <span className="inline-block w-1 h-4 ml-1 bg-white"></span>
-        </Typography>
+        </>
       </Windows>
     </>
   );

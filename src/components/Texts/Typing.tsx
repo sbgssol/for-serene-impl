@@ -1,26 +1,28 @@
-import { Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 
-export default function TypingText(props: { msg: string; style: string }) {
-    const [content, setContent] = useState("");
-    const [idx, setIdx] = useState(0);
-    const [sign, setSign] = useState("|");
-    useEffect(() => {
-        const id = setInterval(() => {
-            if (idx < props.msg.length) {
-                setContent((prevContent) => prevContent + props.msg[idx]);
-                setIdx((prev) => prev + 1);
-            } else {
-                clearInterval(id);
-                setSign("");
-            }
-            console.log(idx, content, props.msg);
-        }, 200);
+export default function TypingText(props: {
+  msg: string;
+  speedInMs: number;
+  className?: string;
+}) {
+  const [content, setContent] = useState("");
+  const [msgIndex, setMsgIndex] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (msgIndex < props.msg.length) {
+        setContent((prev) => prev + props.msg[msgIndex]);
+        setMsgIndex((prev) => prev + 1);
+      }
+    }, props.speedInMs);
 
-        return () => {
-            clearInterval(id);            
-        };
-    }, [content, idx, props.msg]);
+    return () => {
+      clearInterval(id);
+    };
+  }, [content,msgIndex,props.speedInMs,props.msg]);
 
-    return <Typography className={props.style}>{content}{sign}</Typography>;
+  return (
+    <>
+      <p className={props.className}>{content}</p>
+    </>
+  );
 }
