@@ -34,11 +34,11 @@ export default function Words() {
             <TypingText
               key={index}
               msg={str}
-              className="text-pink-200 font-signika text-lg p-2 text-justify"
+              className="text-pink-200 font-primary text-lg p-2 text-justify"
               speedInMs={15}
             />
           ))}
-          <Album />
+          <Album title="here"/>
         </>
       </Windows>
     </>
