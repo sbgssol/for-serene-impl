@@ -124,7 +124,7 @@ export default function Loves() {
     const dynamicClasses = middleAnimation ? "animate-flyInUp" : "opacity-0";
     return (
       <>
-        <Typography className={`text-3xl ${textColor} ${dynamicClasses}`}>
+        <Typography className={`text-3xl ${textFont} ${textColor} ${dynamicClasses}`}>
           {wordIdx < 3 ? "without any" : "with all of my"}
         </Typography>
       </>

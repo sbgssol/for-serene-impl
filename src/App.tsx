@@ -5,14 +5,17 @@ import { useNavigate } from "react-router-dom";
 import Windows from "./components/Windows";
 // import { useGlobal } from "./context/useGlobal";
 
-function App() {
+function ThanksBae() {
   const [flyIn1, setFlyIn1] = useState(true);
   const [flyIn2, setFlyIn2] = useState(false);
   const [flyIn3, setFlyIn3] = useState(false);
+  const [flyIn3b, setFlyIn3b] = useState(false);
   const [flyIn4, setFlyIn4] = useState(false);
   const [flyIn5, setFlyIn5] = useState(false);
   const [heartIn, setheartIn] = useState(false);
   const navigate = useNavigate();
+
+  const bigFont = "font-marmelad";
 
   const handleNextClick = () => {
     console.log("App.Click 1");
@@ -28,6 +31,11 @@ function App() {
     console.log("App.Click 3");
     if (!flyIn3) {
       setFlyIn3(!flyIn3);
+      return;
+    }
+    console.log("App.Click 3b");
+    if (!flyIn3b) {
+      setFlyIn3b(!flyIn3b);
       return;
     }
     console.log("App.Click 4");
@@ -52,7 +60,7 @@ function App() {
     return (
       <Typography
         variant="h2"
-        className={`font-signika text-pink-100 pr-3 text-4xl ${dynamicClasses}`}
+        className={`relative font-signika text-pink-100 pr-3 text-4xl ${dynamicClasses}`}
       >
         {msg}
       </Typography>
@@ -65,7 +73,7 @@ function App() {
       <>
         <Typography
           variant="h2"
-          className={`font-marmelad text-pink-300 bg-pink-50 text-6xl px-3 py-1 box-content rounded-md uppercase shadow-md shadow-pink-800/80 ${classes} `}
+          className={`${bigFont} text-pink-300 bg-pink-50 text-7xl px-3 py-1 box-content rounded-md uppercase shadow-md shadow-pink-800/80 ${classes} `}
         >
           {msg}
         </Typography>
@@ -78,7 +86,7 @@ function App() {
       <>
         <Typography
           variant="h2"
-          className={`font-marmelad text-pink-50 bg-pink-300 shadow-lg shadow-pink-600/80 text-6xl px-3 py-1 box-content rounded-md uppercase ${classes}`}
+          className={`${bigFont} w-full text-pink-50 bg-pink-300 shadow-lg shadow-pink-600/80 text-7xl px-3 py-1 box-content rounded-md uppercase ${classes}`}
         >
           {msg}
         </Typography>
@@ -120,10 +128,10 @@ function App() {
   };
 
   const genBecause = (msg: string) => {
-    const dynamicClasses = flyIn3 ? "animate-flyRight" : "opacity-0";
+    const dynamicClasses = flyIn3b ? "animate-flyRight" : "opacity-0";
     return (
       <Typography
-        variant="h3"
+        variant="h2"
         className={`font-signika text-pink-100 text-4xl ${dynamicClasses}`}
       >
         {msg}
@@ -136,15 +144,18 @@ function App() {
       <Windows prevDisabled nextClick={handleNextClick}>
         <div className="relative top-1/2 -translate-y-1/2 flex flex-col items-center">
           <div className="header flex justify-center place-items-baseline">
-            {genThanks("Www ww ww")}
+            {genThanks("Cảm ơn em,")}
             <div className="sub-header flex flex-col items-start">
-              <div className="flex">{genPrincess("G101 1101")}</div>
-              {genMine("111 011")}
+              <div className="flex">{genPrincess("công chúa")}</div>
+              <div className="flex space-x-4">
+                {genMine("của anh, ")}
+                {genBecause("vì em đã")}
+              </div>
               <div className="flex justify-between w-full">
-                <div className="text-center">{genBecause("10 11 00")}</div>
+                {/* <div className="text-center">{genBecause("vì em đã")}</div> */}
                 <div className="w-full text-center flex ">
-                  {genHere("0 011")}
-                  {genHeart("❤")}
+                  {genHere("ở đây")}
+                  {genHeart("❤️")}
                   {/* {genHeart("❤")} */}
                   {/* {genHeart("❤️")} */}
                 </div>
@@ -157,4 +168,4 @@ function App() {
   );
 }
 
-export default App;
+export default ThanksBae;
