@@ -52,7 +52,7 @@ function ThanksBae() {
     //   return;
     // }
     console.log("App.Click 6");
-    navigate("/for-serene-impl/2");
+    navigate("/for-serene-impl/health");
   };
 
   const genThanks = (msg: string) => {

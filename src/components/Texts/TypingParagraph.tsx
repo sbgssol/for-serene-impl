@@ -12,6 +12,7 @@ export default function TypingParagraph(props: TypingParagraphProps) {
   const [charIdx, setCharIdx] = useState(0);
   const [content, setContent] = useState("");
   const [generated, setGenerated] = useState([""]);
+  // const typingStatus = useTyping();
 
   useEffect(() => {
     const id = setInterval(() => {

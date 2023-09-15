@@ -21,7 +21,7 @@ export default function Authorization({
   const global = useGlobal();
   const handleContinueClicked = () => {
     if (!valid) return;
-    navigate("/for-serene-impl/1");
+    navigate("/for-serene-impl/here");
   };
 
   useEffect(() => {
