@@ -1,13 +1,14 @@
 import { Button } from "@material-tailwind/react";
 import RightIcon from "../assets/right.svg";
 import LeftIcon from "../assets/left.svg";
+import { ReactElement } from "react";
 
 export default function Windows(props: {
   prevDisabled?: boolean;
   prevClick?: () => void;
   nextDisabled?: boolean;
   nextClick?: () => void;
-  children: JSX.Element;
+  children: ReactElement | ReactElement[];
   bg?: string;
   className?: string;
 }) {

@@ -1,53 +1,52 @@
-// import { useEffect, useState } from "react";
-// import { useTyping } from "../../context/useTyping";
-// import TypingText from "./Typing";
-// import { Button } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
+import { useEffect, useState } from "react";
 
-// export interface TypingParagraphProps {
-//   paragraph: string[];
-//   speedInMs: number;
-//   className?: string;
-// }
-// export default function TypingParagraph(props: TypingParagraphProps) {
-//   const typingStatus = useTyping();
-//   const [generated, setGenerated] = useState([""]);
-//   const [showing, setShowing] = useState(props.paragraph[0]);
-//   const [sentenceIdx, setSentenceIdx] = useState(0);
-//   let interval = 0;
-//   let id = 0;
+export interface TypingParagraphProps {
+  paragraph: string[];
+  speedInMs: number;
+  className?: string;
+}
 
-//   useEffect(() => {
-//     if (sentenceIdx < props.paragraph.length) {
-//       interval = 2 * (props.paragraph[sentenceIdx].length * props.speedInMs);
+export default function TypingParagraph(props: TypingParagraphProps) {
+  const [sentenceIndx, setSentenceIndx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [content, setContent] = useState("");
+  const [generated, setGenerated] = useState([""]);
 
-//       console.log("Sentence Idx:", sentenceIdx);
-//       console.log("Interval:", interval);
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (sentenceIndx < props.paragraph.length) {
+        if (charIdx < props.paragraph[sentenceIndx].length) {
+          setContent(
+            (prevContent) =>
+              prevContent + props.paragraph[sentenceIndx][charIdx]
+          );
+        }
+        if (charIdx < props.paragraph[sentenceIndx].length) {
+          setCharIdx((prevCharIdx) => prevCharIdx + 1);
+        } else {
+          setGenerated([...generated, props.paragraph[sentenceIndx]]);
+          setCharIdx(0);
+          setSentenceIndx((idx) => idx + 1);
+          setContent("");
+          clearInterval(id);
+        }
+      }
+    }, props.speedInMs);
 
-//       id = setInterval(() => {
-//         setSentenceIdx((idx) => idx + 1);
-//       }, interval);
+    return () => {
+      clearInterval(id);
+    };
+  }, [charIdx, generated, props.paragraph, props.speedInMs, sentenceIndx]);
 
-//       if
-//       if (sentenceIdx > props.paragraph.length - 1) {
-//         setSentenceIdx(0);
-//       }
-//     }
-
-//     return () => {
-//       clearInterval(id);
-//     };
-//   }, [sentenceIdx]);
-
-//   return (
-//     <>
-//       <p className="text-white">Sentance idx: {sentenceIdx}</p>
-//       <TypingText
-//         msg={showing}
-//         speedInMs={props.speedInMs}
-//         className={props.className}
-//         key={showing + sentenceIdx}
-//       />
-//       {/* <Button onClick={handleClick}>Click</Button> */}
-//     </>
-//   );
-// }
+  return (
+    <>
+      {generated.map((msg, index) => (
+        <Typography key={index} className={`${props.className} block `}>
+          {msg}
+        </Typography>
+      ))}
+      <Typography className={props.className}>{content}</Typography>
+    </>
+  );
+}
