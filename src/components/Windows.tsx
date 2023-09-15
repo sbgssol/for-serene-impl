@@ -30,6 +30,7 @@ export default function Windows(props: {
           disabled={props.prevDisabled}
           className={dynamicClasses}
           onClick={props.prevClick}
+          ripple={false}
         >
           <img src={LeftIcon} alt="" />
         </Button>
@@ -37,6 +38,7 @@ export default function Windows(props: {
           disabled={props.nextDisabled}
           className={dynamicClasses}
           onClick={props.nextClick}
+          ripple={false}
         >
           <img src={RightIcon} alt="" />
         </Button>

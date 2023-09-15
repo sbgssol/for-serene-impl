@@ -47,11 +47,14 @@ export default function Authorization({
           lips?
         </Typography>
         <Input
+          variant="standard"
+          size="lg"
           crossOrigin={undefined}
           type="password"
           color="pink"
           value={input}
           onChange={handleChanged}
+          className="text-pink-500"
           label={valid ? "That's sweet, my darling ❤️" : "Do you remember?"}
         />
         <Button
