@@ -25,7 +25,7 @@ export default function WordsChance() {
         prevClick={() => {
           navigate(-1);
         }}
-        nextClick={() => {navigate("/for-serene-impl/missnlove")}}
+        nextClick={() => {navigate("/for-serene-impl/loves")}}
       >
         <TypingParagraph
           paragraph={chances}

@@ -77,7 +77,7 @@ export default function MissAndLove() {
     // console.log(6);
     setSlideOut(true);
     setTimeout(() => {
-      navigate("/for-serene-impl/loves");
+      navigate("/for-serene-impl/chance");
     }, 500);
   };
 

@@ -24,7 +24,7 @@ export default function WordsMiss() {
         prevClick={() => {
           navigate(-1);
         }}
-        nextClick={() => {navigate("/for-serene-impl/chance")}}
+        nextClick={() => {navigate("/for-serene-impl/missnlove")}}
       >
         <TypingParagraph
           paragraph={miss}

@@ -79,6 +79,8 @@ export default function Loves() {
       }, 400);
       return;
     }
+
+    // navigate('/for-serene-impl/health')
     console.log("Click: 5");
   };
 
