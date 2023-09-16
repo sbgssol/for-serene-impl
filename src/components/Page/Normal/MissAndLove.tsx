@@ -130,7 +130,6 @@ export default function MissAndLove() {
     let dynamicClasses1 = "bg-[#FFE5E5] z-10 animate-scaleInTop";
     let dynamicClasses2 = "bg-[#FFE5E5] z-10 animate-scaleInBottom";
     if (slideOut) {
-      // console.log("slide out");
       dynamicClasses1 = "z-10 bg-[#333] animate-scaleOutTopFromBottom";
       dynamicClasses2 = "z-10 bg-[#333] animate-scaleOutBottomFromTop";
     }
@@ -138,7 +137,7 @@ export default function MissAndLove() {
       return (
         <>
           <div
-            className={`absolute  w-full h-[51%] rounded-t-lg ${dynamicClasses1}`}
+            className={`absolute w-full h-[51%] rounded-t-lg ${dynamicClasses1}`}
           ></div>
           <div
             className={`absolute w-full h-[50%] bottom-0 rounded-b-lg ${dynamicClasses2}`}

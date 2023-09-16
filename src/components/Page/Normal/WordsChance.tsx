@@ -25,12 +25,14 @@ export default function WordsChance() {
         prevClick={() => {
           navigate(-1);
         }}
-        nextClick={() => {navigate("/for-serene-impl/loves")}}
+        nextClick={() => {
+          navigate("/for-serene-impl/loves");
+        }}
       >
         <TypingParagraph
           paragraph={chances}
-          speedInMs={30}
-          className="text-md text-pink-200 font-primary px-2 py-1 font-normal"
+          speedInMs={50}
+          className="text-md text-primaryPink-300 font-primary px-2 py-1 font-normal"
         />
       </Windows>
     </>

@@ -13,15 +13,17 @@ export default function Windows(props: {
   className?: string;
 }) {
   const dynamicClasses =
-    "p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-125 duration-200 active:scale-75";
+    "p-0 bg-transparent shadow-none hover:shadow-none transition-transform hover:scale-110 duration-200 active:scale-75";
   return (
     <>
       <div
-        className={`${
+        className={`relative ${
           props.bg === undefined ? "bg-[#333]" : props.bg
-        } container mx-auto w-[800px] h-[600px] mt-9 rounded-xl shadow-md drop-shadow-lg shadow-pink-800/70 select-none ${
-          props.className
-        }`}
+        } container mx-auto w-[800px] h-[600px] mt-9 rounded-xl select-none 
+        ${props.className} border-4 border-black `}
+        style={{
+          boxShadow: "4px 6px 0px 0px #FF758F",
+        }}
       >
         {props.children}
       </div>
@@ -36,7 +38,7 @@ export default function Windows(props: {
         </Button>
         <Button
           disabled={props.nextDisabled}
-          className={dynamicClasses}
+          className={`${dynamicClasses}`}
           onClick={props.nextClick}
           ripple={false}
         >

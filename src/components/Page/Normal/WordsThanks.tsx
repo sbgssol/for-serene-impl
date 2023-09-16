@@ -21,12 +21,14 @@ export default function WordsThanks() {
         prevClick={() => {
           navigate(-1);
         }}
-        nextClick={() => {navigate("/for-serene-impl/miss")}}
+        nextClick={() => {
+          navigate("/for-serene-impl/miss");
+        }}
       >
         <TypingParagraph
           paragraph={thanks}
-          speedInMs={30}
-          className="text-xl text-pink-200 font-primary px-2 py-2 font-normal"
+          speedInMs={50}
+          className="text-xl text-primaryPink-300 font-primary px-2 py-2 font-normal"
         />
         <Album title="here" />
       </Windows>

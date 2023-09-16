@@ -55,12 +55,14 @@ function ThanksBae() {
     navigate("/for-serene-impl/health");
   };
 
+  const commonTextColor = "text-[#FF8FA3]";
+
   const genThanks = (msg: string) => {
     const dynamicClasses = flyIn1 ? "animate-flyLeft" : "opacity-0";
     return (
       <Typography
         variant="h2"
-        className={`relative font-signika text-pink-100 pr-3 text-4xl ${dynamicClasses}`}
+        className={`relative font-signika ${commonTextColor} pr-3 text-4xl ${dynamicClasses}`}
       >
         {msg}
       </Typography>
@@ -73,7 +75,11 @@ function ThanksBae() {
       <>
         <Typography
           variant="h2"
-          className={`${bigFont} text-pink-300 bg-pink-50 text-7xl px-3 py-1 box-content rounded-md uppercase shadow-md shadow-pink-800/80 ${classes} `}
+          className={`${bigFont} text-[#FF4D6D] bg-pink-50 text-7xl px-3 py-1
+           box-content rounded-md uppercase ${classes} `}
+          style={{
+            boxShadow: "4px 4px 0px 0px #FF8FA3",
+          }}
         >
           {msg}
         </Typography>
@@ -86,7 +92,11 @@ function ThanksBae() {
       <>
         <Typography
           variant="h2"
-          className={`${bigFont} w-full text-pink-50 bg-pink-300 shadow-lg shadow-pink-600/80 text-7xl px-3 py-1 box-content rounded-md uppercase ${classes}`}
+          className={`${bigFont} w-full text-pink-50 bg-[#FF4D6D] text-7xl 
+          px-3 py-1 box-content rounded-md uppercase ${classes}`}
+          style={{
+            boxShadow: "4px 4px 0px 0px #800F2F",
+          }}
         >
           {msg}
         </Typography>
@@ -107,7 +117,7 @@ function ThanksBae() {
       <>
         <Typography
           variant="h2"
-          className={`text-6xl py-1 pl-2 text-primaryPink-500 ${classes}`}
+          className={`flex items-center text-7xl pl-4 text-primaryPink-500 ${classes}`}
         >
           {msg}
         </Typography>
@@ -120,7 +130,7 @@ function ThanksBae() {
     return (
       <Typography
         variant="h2"
-        className={`font-signika text-pink-300 text-4xl ${dynamicClasses}`}
+        className={`font-signika text-primaryPink-500 text-4xl ${dynamicClasses}`}
       >
         {msg}
       </Typography>
@@ -132,7 +142,7 @@ function ThanksBae() {
     return (
       <Typography
         variant="h2"
-        className={`font-signika text-pink-100 text-4xl ${dynamicClasses}`}
+        className={`font-signika ${commonTextColor} text-4xl ${dynamicClasses}`}
       >
         {msg}
       </Typography>
@@ -155,8 +165,8 @@ function ThanksBae() {
                 {/* <div className="text-center">{genBecause("vì em đã")}</div> */}
                 <div className="w-full text-center flex ">
                   {genHere("ở đây")}
-                  {genHeart("❤️")}
-                  {/* {genHeart("❤")} */}
+                  {/* {genHeart("❤️")} */}
+                  {genHeart("❤")}
                   {/* {genHeart("❤️")} */}
                 </div>
               </div>

@@ -19,7 +19,7 @@ export default function Loves() {
   const [outAnimation, setOutAnimation] = useState("animate-flyOutUp");
   const [stateChanged, setstateChanged] = useState(false);
   const [needCover, setneedCover] = useState(false);
-  const [strokeColor, setstrokeColor] = useState("#FF0A54");
+  const [strokeColor, setstrokeColor] = useState("#C9184A");
 
   useEffect(() => {
     console.log("word idx changed: " + wordIdx);
@@ -126,7 +126,9 @@ export default function Loves() {
     const dynamicClasses = middleAnimation ? "animate-flyInUp" : "opacity-0";
     return (
       <>
-        <Typography className={`text-3xl ${textFont} ${textColor} ${dynamicClasses}`}>
+        <Typography
+          className={`text-3xl ${textFont} ${textColor} ${dynamicClasses}`}
+        >
           {wordIdx < 3 ? "without any" : "with all of my"}
         </Typography>
       </>
@@ -141,12 +143,12 @@ export default function Loves() {
       <>
         <BorderedShadownedText
           className={`pt-2 uppercase ${textFont} tracking-wider ${dynamicClasses} ${fontSize}`}
-          shadowBlur="0px"
+          shadowBlur="1px"
           shadowColor="#FF99AC"
-          shadowWidth="10px"
+          shadowWidth="8px"
           str={words[wordIdx].word}
           strokeColor={strokeColor}
-          strokeWidth="2px"
+          strokeWidth="3px"
           textFill={words[wordIdx].color}
         />
       </>
