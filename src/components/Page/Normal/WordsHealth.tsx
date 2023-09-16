@@ -7,12 +7,12 @@ export default function WordsHealth() {
   const navigate = useNavigate();
   const health = [
     "...",
-    "Tóc mới của em trông xinh lắm, mặc dù đến thời điểm này thì nó không phải mới nữa rồi",
+    "Em cắt tóc xinh lắm",
     "Em có khỏe không?",
-    "Qua những bức ảnh gần đây, anh thấy em gầy đi hơn trước nhiều lắm em à.",
-    "Em đã có cơ hội nói chuyện với ba mẹ chưa? Kể từ lần nói chuyện gần nhất, anh đã không có cơ hội để được nghe em chia sẽ với anh, sẽ thật tốt nếu bây giờ anh ở bên cạnh em, anh muốn biết xem em đã thế nào.",
-    "Công việc của em dạo này sao rồi? Chắc hẳn có nhiều điểu để nói lắm em nhỉ, công việc của anh cũng vậy, có thật nhiều điều để anh kể cho em nghe.",
-    "Giờ anh chỉ muốn ngồi cạnh em, nắm lấy tay em, nhìn vào mắt em, và lắng nghe em trút hết nỗi lòng sao ngần ấy thời gian em phải một mình vượt qua những điều ấy, anh muốn được nghe giọng em.",
+    "Qua những bức ảnh gần đây, anh thấy em gầy đi hơn trước nhiều lắm rồi á (*)",
+    "Em đã nói chuyện với ba mẹ chưa? Chắc dịp về quê vừa rồi em đã có cơ hội được nói chuyện rồi em nhỉ? Kể từ lần nói chuyện gần nhất, anh đã không có cơ hội để được nghe em chia sẽ với anh, sẽ thật tốt nếu bây giờ anh ở bên cạnh em, anh muốn biết xem em đã thế nào.",
+    "Công việc của em dạo này sao rồi, em có ổn với nó không? Chắc hẳn có nhiều điểu để nói lắm em nhỉ, công việc của anh cũng vậy, có thật nhiều điều để anh kể cho em nghe, vui có buồn cũng có nữa, anh muốn kể với em nhiêu điều lắm.",
+    "Giờ anh chỉ muốn ngồi cạnh em, nắm lấy tay em, nhìn vào mắt em, và lắng nghe em trút hết nỗi lòng, anh nhớ giọng em.",
   ];
 
   return (
