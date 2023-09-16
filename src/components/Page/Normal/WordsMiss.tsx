@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Windows from "../../Windows";
-import Album from "./Album";
+// import Album from "./Album";
 import TypingParagraph from "../../Texts/TypingParagraph";
 
 export default function WordsMiss() {
@@ -33,7 +33,7 @@ export default function WordsMiss() {
           speedInMs={50}
           className="text-lg text-primaryPink-300 font-primary px-2 py-1 font-normal"
         />
-        <Album title="here" />
+        {/* <Album title="here" /> */}
       </Windows>
     </>
   );

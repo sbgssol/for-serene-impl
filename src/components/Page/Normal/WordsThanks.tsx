@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Windows from "../../Windows";
-import Album from "./Album";
+// import Album from "./Album";
 import TypingParagraph from "../../Texts/TypingParagraph";
 
 export default function WordsThanks() {
@@ -30,7 +30,7 @@ export default function WordsThanks() {
           speedInMs={50}
           className="text-xl text-primaryPink-300 font-primary px-2 py-2 font-normal"
         />
-        <Album title="here" />
+        {/* <Album title="here" /> */}
       </Windows>
     </>
   );

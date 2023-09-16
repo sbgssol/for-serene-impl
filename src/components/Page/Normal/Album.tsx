@@ -8,14 +8,14 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import Img1 from "../../../assets/01.png";
-import Img2 from "../../../assets/02.png";
-import Img3 from "../../../assets/03.png";
-import Img4 from "../../../assets/04.png";
-import Img5 from "../../../assets/05.png";
-import Img6 from "../../../assets/06.png";
 
-export default function Album(props:{title: string}) {
+export interface AlbumProps {
+  title: string;
+  images: { path: string; desc: string }[];
+  titleClasses?: string;
+}
+
+export default function Album(props: AlbumProps) {
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
   const iconButtonClasses =
@@ -26,33 +26,6 @@ export default function Album(props:{title: string}) {
   const navigatorPreviousColor = "bg-[#A8A29E]";
 
   const handleOpen = () => setOpen((cur) => !cur);
-
-  const imagesAndDescriptions = [
-    {
-      path: Img1,
-      desc: "He stepped gingerly onto the bridge knowing that enchantment awaited on the other side.",
-    },
-    {
-      path: Img2,
-      desc: "As time wore on, simple dog commands turned into full paragraphs explaining why the dog couldn’t do something.",
-    },
-    {
-      path: Img3,
-      desc: "Whenever he saw a red flag warning at the beach he grabbed his surfboard.",
-    },
-    {
-      path: Img4,
-      desc: "Everybody should read Chaucer to improve their everyday vocabulary.",
-    },
-    {
-      path: Img5,
-      desc: "Now I need to ponder my existence and ask myself if I'm truly real",
-    },
-    {
-      path: Img6,
-      desc: "The reservoir water level continued to lower while we enjoyed our long shower.",
-    },
-  ];
 
   useEffect(() => {
     if (!open) {
@@ -68,7 +41,7 @@ export default function Album(props:{title: string}) {
         onClick={handleOpen}
         ripple={false}
         variant="text"
-        className="text-[#0EA5E9] font-primary normal-case text-md font-normal underline italic underline-offset-4 px-1 active:scale-75 hover:scale-110"
+        className={`${props.titleClasses} active:scale-75 hover:scale-110`}
       >
         {props.title}
       </Button>
@@ -118,7 +91,7 @@ export default function Album(props:{title: string}) {
                 color="white"
                 size="lg"
                 onClick={() => {
-                  if (index < imagesAndDescriptions.length - 1) {
+                  if (index < props.images.length - 1) {
                     setIndex((prev) => prev + 1);
                   }
                   handleNext();
@@ -158,7 +131,7 @@ export default function Album(props:{title: string}) {
               </div>
             )}
           >
-            {imagesAndDescriptions.map((img, index) => (
+            {props.images.map((img, index) => (
               <img
                 key={index}
                 src={img.path}
@@ -178,7 +151,7 @@ export default function Album(props:{title: string}) {
             variant="paragraph"
             className="text-pink-100 font-primary text-center"
           >
-            {imagesAndDescriptions[index].desc}
+            {props.images[index].desc}
           </Typography>
         </DialogFooter>
       </Dialog>

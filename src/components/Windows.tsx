@@ -22,7 +22,7 @@ export default function Windows(props: {
         } container mx-auto w-[800px] h-[600px] mt-9 rounded-xl select-none 
         ${props.className} border-4 border-black `}
         style={{
-          boxShadow: "4px 6px 0px 0px #FF758F",
+          boxShadow: "8px 8px 0px 0px #FF758F",
         }}
       >
         {props.children}
