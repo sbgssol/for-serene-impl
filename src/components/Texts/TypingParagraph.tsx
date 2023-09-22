@@ -19,7 +19,14 @@ import LinkImg01 from "../../assets/link01.png";
 import LinkImg02 from "../../assets/link02.png";
 import LinkImg03 from "../../assets/link03.png";
 import LinkImg04 from "../../assets/link04.png";
-import LinkImg05 from "../../assets/link05.png";
+// import LinkImg05 from "../../assets/link05.png";
+
+const cute = [
+  {
+    path: MeiImg9,
+    desc: "Công chúa của anh",
+  },
+];
 
 const slender = [
   {
@@ -28,7 +35,7 @@ const slender = [
   },
   {
     path: MeiImg3,
-    desc: "Vẫn rất xinh",
+    desc: "Dáng người nhỏ xíu àh",
   },
   {
     path: MeiImg4,
@@ -36,19 +43,15 @@ const slender = [
   },
   {
     path: MeiImg5,
-    desc: "Và vấn rất xinh",
+    desc: "Này nữa",
   },
   {
     path: MeiImg7,
-    desc: "Và đây nữa, anh chìm trong đôi mắt ấy",
+    desc: "Đây nữa",
   },
   {
     path: MeiImg8,
-    desc: "Tay có đốm đỏ, có phải bị côn trùng đốt rồi không 😥",
-  },
-  {
-    path: MeiImg9,
-    desc: "Một con báo, và hai con mèo. Đáng iu thậc sự 🥰",
+    desc: "Tay nhỏ vậy rồi mà còn có đốm đỏ, có phải bị côn trùng đốt rồi không 😥",
   },
 ];
 
@@ -70,7 +73,7 @@ const hardTime = [
   },
   {
     path: Img3,
-    desc: "Anh đã phải làm rất nhiều, và làm trễ nữa, hầu như là 6 ngày trong tuần. Ở trên là tin nhắn của PM follow status của anh",
+    desc: "Anh đã phải làm rất nhiều, và làm trễ nữa, hầu như là 6 ngày trong tuần.",
   },
   {
     path: Img4,
@@ -100,12 +103,12 @@ const links = [
   },
   {
     path: LinkImg04,
-    desc: "Và đây là tấm hình anh dùng lúc đi làm 😁",
+    desc: "Và đây là tấm hình anh dùng lúc đi làm",
   },
-  {
-    path: LinkImg05,
-    desc: "Và lên báo tuyển dụng của cty 🤗",
-  },
+  // {
+  //   path: LinkImg05,
+  //   desc: "Và lên báo tuyển dụng của cty 🤗",
+  // },
 ];
 
 export interface TypingParagraphProps {
@@ -147,47 +150,64 @@ export default function TypingParagraph(props: TypingParagraphProps) {
     };
   }, [charIdx, generated, props.paragraph, props.speedInMs, sentenceIndx]);
 
+  const genAlbum = (msg: string) => {
+    return (
+      <>
+        {msg.includes("Em cắt tóc xinh lắm") ? (
+          <Album
+            title="click"
+            images={newHair}
+            titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
+          />
+        ) : (
+          ""
+        )}
+        {msg.includes("anh thấy em gầy đi hơn trước nhiều lắm rồi á") ? (
+          <Album
+            title="click"
+            images={slender}
+            titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
+          />
+        ) : (
+          ""
+        )}
+        {msg.includes("Anh đã có một khoản thời gian vô cùng khó khăn") ? (
+          <Album
+            title="click"
+            images={hardTime}
+            titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
+          />
+        ) : (
+          ""
+        )}
+        {msg.includes("có một mối liên kết đặc biệt") ? (
+          <Album
+            title="click"
+            images={links}
+            titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
+          />
+        ) : (
+          ""
+        )}
+        {msg.includes("Anh sẽ giữ trọn hình bóng em trong trái tim anh") ? (
+          <Album
+            title="click"
+            images={cute}
+            titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
+          />
+        ) : (
+          ""
+        )}
+      </>
+    );
+  };
+
   return (
     <>
       {generated.map((msg, index) => (
         <Typography key={index} className={`${props.className} block `}>
           {msg}
-          {msg.includes("Em cắt tóc xinh lắm") ? (
-            <Album
-              title="click"
-              images={newHair}
-              titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
-            />
-          ) : (
-            ""
-          )}
-          {msg.includes("anh thấy em gầy đi hơn trước nhiều lắm rồi á") ? (
-            <Album
-              title="click"
-              images={slender}
-              titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
-            />
-          ) : (
-            ""
-          )}
-          {msg.includes("Anh đã có một khoản thời gian vô cùng khó khăn") ? (
-            <Album
-              title="click"
-              images={hardTime}
-              titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
-            />
-          ) : (
-            ""
-          )}
-          {msg.includes("có một mối liên kết đặc biệt") ? (
-            <Album
-              title="click"
-              images={links}
-              titleClasses="text-blue-300 py-0 px-1 underline underline-offset-2"
-            />
-          ) : (
-            ""
-          )}
+          {genAlbum(msg)}
         </Typography>
       ))}
       <Typography className={props.className}>{content}</Typography>
