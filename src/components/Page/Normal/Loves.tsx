@@ -3,6 +3,7 @@ import Windows from "../../Windows";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import BorderedShadownedText from "../../BorderedShadowedText";
+import Ask from "./Ask";
 
 export default function Loves() {
   const navigate = useNavigate();
@@ -20,6 +21,8 @@ export default function Loves() {
   const [stateChanged, setstateChanged] = useState(false);
   const [needCover, setneedCover] = useState(false);
   const [strokeColor, setstrokeColor] = useState("#C9184A");
+  const [showAsk, setShowAsk] = useState(false);
+  const [counter, setCounter] = useState(0)
 
   useEffect(() => {
     console.log("word idx changed: " + wordIdx);
@@ -40,6 +43,12 @@ export default function Loves() {
       }
     }
   }, [wordIdx, stateChanged]);
+
+  useEffect(() => {
+    if (counter > 5) {
+      setShowAsk(true);
+    }
+  }, [counter]);
 
   const words = [
     { word: "Condition", color: "#FAE0E4" },
@@ -69,10 +78,11 @@ export default function Loves() {
 
     console.log("Click: 4");
     if (!bottomOutAnimation) {
-      setbottomOutAnimation((prev) => !prev);
+      setbottomOutAnimation((prev) => !prev);      
       setTimeout(() => {
         setbottomInAnimation(true);
         setbottomOutAnimation(false);
+        setCounter((c) => c + 1);
         if (wordIdx < words.length - 1) {
           setWordIdx((prev) => prev + 1);
         }
@@ -192,6 +202,18 @@ export default function Loves() {
     }
   };
 
+const handleModalClick = () => { setShowAsk(false) };
+
+  const genAsk = () => {
+    return (
+      <Ask
+        handler={handleModalClick}
+        okayHandler={handleModalClick}
+        show={showAsk}
+      />
+    );
+  };
+
   return (
     <>
       <Windows
@@ -203,6 +225,7 @@ export default function Loves() {
         // className={`transition-colors duration-150 ease-out`}
       >
         {genCover()}
+        {genAsk()}
       </Windows>
     </>
   );

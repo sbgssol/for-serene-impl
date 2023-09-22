@@ -1,12 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import Windows from "../../Windows";
 import TypingParagraph from "../../Texts/TypingParagraph";
-import Ask from "./Ask";
-import { useState } from "react";
 
 export default function WordsChance() {
   const navigate = useNavigate();
-  const [showAsk, setShowAsk] = useState(false);
 
   const chances = [
     "Anh xin lỗi, anh biết mình đã trễ hẹn với em.",
@@ -20,18 +17,11 @@ export default function WordsChance() {
     "Em nhé!",
   ];
 
-  const genAsk = () => {
-    return (
-      <Ask
-        handler={handleNextClick}
-        okayHandler={handleNextClick}
-        show={showAsk}
-      />
-    );
-  };
+  
 
   const handleNextClick = () => {
-    setShowAsk((show) => !show);
+    // setShowAsk((show) => !show);
+    navigate('/for-serene-impl/loves')
   };
 
   return (
@@ -47,7 +37,6 @@ export default function WordsChance() {
           speedInMs={50}
           className="text-md text-primaryPink-300 font-primary px-2 py-1 font-normal"
         />
-        {genAsk()}
       </Windows>
     </>
   );
