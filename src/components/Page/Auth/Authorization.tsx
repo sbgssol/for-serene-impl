@@ -43,8 +43,7 @@ export default function Authorization({
           color="pink"
           className="flex items-center gap-1 font-normal mb-2 font-signika text-xl"
         >
-          Do you remember the place where I gave you our first kiss on your
-          lips?
+          Where was the place that I gave you our first kiss on your lips?
         </Typography>
         <Input
           variant="standard"
@@ -55,7 +54,7 @@ export default function Authorization({
           value={input}
           onChange={handleChanged}
           className="text-pink-500"
-          label={valid ? "That's sweet, my darling ❤️" : "Do you remember?"}
+          label={valid ? "That's sweet, my darling ❤️" : "Where was it?"}
         />
         <Button
           ripple={valid ? true : false}
