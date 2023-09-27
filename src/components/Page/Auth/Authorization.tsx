@@ -30,7 +30,7 @@ export default function Authorization({
     setValid(
       spaceRemoved.toLowerCase() === global.hexToUnicode("0x63 0x63 0x6b") ||
         spaceRemoved.toLowerCase() ===
-          global.hexToUnicode("0x63 0x69 0x72 0x63 0x6c 0x65 0x6b")
+          global.hexToUnicode("0x63 0x69 0x72 0x63 0x6c 0x65 0x6b"),
     );
     setValidForRouter(valid);
     return () => {};

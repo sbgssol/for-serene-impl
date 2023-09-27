@@ -129,7 +129,7 @@ export default function TypingParagraph(props: TypingParagraphProps) {
         if (charIdx < props.paragraph[sentenceIndx].length) {
           setContent(
             (prevContent) =>
-              prevContent + props.paragraph[sentenceIndx][charIdx]
+              prevContent + props.paragraph[sentenceIndx][charIdx],
           );
         }
 

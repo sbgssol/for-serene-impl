@@ -18,7 +18,7 @@ export default function TypingText(props: {
     return () => {
       clearInterval(id);
     };
-  }, [content,msgIndex,props.speedInMs,props.msg]);
+  }, [content, msgIndex, props.speedInMs, props.msg]);
 
   return (
     <>

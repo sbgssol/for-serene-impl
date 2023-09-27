@@ -22,7 +22,7 @@ export default function Loves() {
   const [needCover, setneedCover] = useState(false);
   const [strokeColor, setstrokeColor] = useState("#C9184A");
   const [showAsk, setShowAsk] = useState(false);
-  const [counter, setCounter] = useState(0)
+  const [counter, setCounter] = useState(0);
 
   useEffect(() => {
     console.log("word idx changed: " + wordIdx);
@@ -78,7 +78,7 @@ export default function Loves() {
 
     console.log("Click: 4");
     if (!bottomOutAnimation) {
-      setbottomOutAnimation((prev) => !prev);      
+      setbottomOutAnimation((prev) => !prev);
       setTimeout(() => {
         setbottomInAnimation(true);
         setbottomOutAnimation(false);
@@ -202,7 +202,9 @@ export default function Loves() {
     }
   };
 
-const handleModalClick = () => { setShowAsk(false) };
+  const handleModalClick = () => {
+    setShowAsk(false);
+  };
 
   const genAsk = () => {
     return (
